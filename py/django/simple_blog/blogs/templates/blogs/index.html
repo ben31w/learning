@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>My blog</h1>
+
+    <a href="{% url 'blogs:create_blog' %}">Create blog post</a>
+
+    <ul>
+        {% for blog in blogs %}
+            <li>
+                <h3>{{blog.title}}</h3>
+                <p>{{blog.date_added}}</p>
+                <p>{{blog.body}}</p>
+            </li>
+        {% empty %}
+            <li>No blogs have been added yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

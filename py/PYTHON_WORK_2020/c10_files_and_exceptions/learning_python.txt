@@ -1,0 +1,7 @@
+In Python, you can declare variables without using keywords like int, float, etc.
+In Python, you can write strings inside single or double quotes.
+In Python, you can write comments after a hash (#) symbol. Special comments called docstrings are enclosed in triple quotes.
+In Python, you can store as many items as you want in a list, and you can mix and match different data types.
+In Python, you can create immutable (unable to be changed) lists called tuples.
+In Python, you can store items in data structures called dictionaries, which allow you to connect pieces of related info.
+In Python, you can write functions and classes, and store them in their own files called modules.

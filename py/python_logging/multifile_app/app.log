@@ -1,0 +1,42 @@
+[2025-07-02 20:14:36,814] INFO: App started
+[2025-07-02 20:14:38,635] DEBUG: Debug in debug_operation
+[2025-07-02 20:14:39,554] INFO: Info in info_operation
+[2025-07-02 20:14:40,218] WARNING: Warning in warning_operation
+[2025-07-02 20:14:40,947] ERROR: Error in error_operation
+Traceback (most recent call last):
+  File "/home/ben31w/projects/learning/python_logging/multifile_app/my_text_window.py", line 88, in error_operation
+    raise RuntimeError("Something failed.")
+RuntimeError: Something failed.
+[2025-07-02 20:14:43,115] CRITICAL: Error in critical_operation
+Traceback (most recent call last):
+  File "/home/ben31w/projects/learning/python_logging/multifile_app/my_text_window.py", line 95, in critical_operation
+    raise RuntimeError("Something failed.")
+RuntimeError: Something failed.
+[2025-07-02 20:14:45,187] INFO: App closed
+[2025-07-02 20:14:55,699] INFO: App closed
+[2025-07-02 20:15:48,782] INFO: App started
+[2025-07-02 20:15:50,291] DEBUG: Debug in debug_operation
+[2025-07-02 20:15:51,395] INFO: App closed
+[2025-07-04 21:18:58,347] INFO: App started
+[2025-07-04 21:19:00,475] DEBUG: Debug in debug_operation
+[2025-07-04 21:19:01,491] INFO: Info in info_operation
+[2025-07-04 21:19:02,091] WARNING: Warning in warning_operation
+[2025-07-04 21:19:02,555] ERROR: Error in error_operation
+Traceback (most recent call last):
+  File "/home/ben31w/projects/learning/python_logging/multifile_app/my_text_window.py", line 85, in error_operation
+    raise RuntimeError("Something failed.")
+RuntimeError: Something failed.
+[2025-07-04 21:19:04,907] CRITICAL: Error in critical_operation
+Traceback (most recent call last):
+  File "/home/ben31w/projects/learning/python_logging/multifile_app/my_text_window.py", line 92, in critical_operation
+    raise RuntimeError("Something failed.")
+RuntimeError: Something failed.
+[2025-07-04 21:41:37,653] INFO: App closed
+[2025-07-06 09:56:50,069] INFO: App started
+[2025-07-06 09:56:59,186] DEBUG: Debug in debug_operation
+[2025-07-06 09:58:33,890] INFO: Info in info_operation
+[2025-07-06 10:01:33,939] WARNING: Warning in warning_operation
+[2025-07-06 10:13:43,240] INFO: Info in info_operation
+[2025-07-06 10:25:44,757] INFO: App started
+[2025-07-06 10:26:06,270] DEBUG: Debug in debug_operation
+[2025-07-06 10:30:24,252] DEBUG: Debug in debug_operation

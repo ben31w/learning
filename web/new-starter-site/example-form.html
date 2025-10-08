@@ -1,0 +1,78 @@
+<!-- an example form -->
+<html>
+    <head>
+        <title>Example form</title>
+        <link rel='stylesheet' href='css/example-form.css'>
+    </head>
+
+    <body>
+        <h1>Form</h1>
+        <!-- Form is a closed tag. 
+            
+            Action specifies the backend program that will process the info
+            when the form is submitted. 
+
+            Method specifies the HTTP method to use when sending the data (get 
+            or post). Get is used to retreive data. Post is used to insert or 
+            update data. -->
+        <form name='form' action='db-processor/process-submissions.py' method='post'>
+            <!-- Textfield input.
+
+                To create a one-line textfield, use the input tag with 
+                type='text'. The name attribute specifies the variable name 
+                that the backend program will use to refer to the data inside
+                the textfield when the form is submitted. -->
+            First name: <br>
+            <input type='text' name='fname' size='20' maxlength="20"><br><br>
+            Last name: <br>
+            <input type='text' name='lname' size='20' maxlength="20"><br><br>
+
+            <!-- Textarea input.
+
+                To create a multi-line textarea, use the textarea tag. This tag 
+                requires a closing tag. Again, the name attribute specifies the
+                variable name that the backend program will use to refer to this
+                data. -->
+            Message: <br>
+            <textarea name='message' rows='4' cols='30'></textarea><br><br>
+
+            <!-- Radio buttons input.
+
+                Radio buttons allow the user to make one and only one choice for 
+                a question.
+                
+                To create radio buttons, use the input tag with type='radio'. 
+                
+                The name attribute should be shared among all radio buttons to 
+                limit the selection to one choice. The name and value attributes
+                are both sent to the backend program.
+
+                Optional: wrap the radio button inside <label></label> tags to 
+                make the text clickable.-->
+            How did you find us?<br>
+            <label><input type="radio" name="found_through" value="Google">Google</label>
+            <label><input type="radio" name="found_through" value="Review">Review</label>
+            <label><input type="radio" name="found_through" value="Friend">Friend</label><br><br>
+
+
+            <!-- Checkboxes input.
+
+                Checkboxes allows the user to make multiple choices for a 
+                question. They work similarly to radio buttons.-->
+<!--             What words would you use to describe our site?<br>
+            <label><input type='checkbox' name='adjective' value='Great'>Great</label>
+            <label><input type='checkbox' name='adjective' value='Easy to use'>Easy to use</label><br><br> -->
+
+            <!-- Submit button.
+
+                To create a submit button, use the input tag with type='submit'.
+                Alternatively, you can use type='image' followed by the normal 
+                img attributes (src, alt, width, height) to create a submit 
+                button from an image.
+
+                Value specifies the text that will appear on the button.-->
+            <input type='submit' value='Submit!'><br>
+        </form>
+    </body>
+
+</html>

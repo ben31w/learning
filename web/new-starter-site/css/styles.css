@@ -1,0 +1,114 @@
+body {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    background-color: lightcyan;
+    color: black;
+}
+
+div#header {
+    /* position property
+    static: default, 'natural flow'
+    absolute: position relative to first positioned (non-static) ancestor
+    fixed: position relative to browser window.
+
+    absolute & fixed ignore the natural flow! Any static elements will
+    go under absolute & fixed elements. Solution: invisible header.*/
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: orange;
+}
+div#invisible-header {
+    width: 100%;
+    visibility: hidden;
+}
+div#navbar {
+    clear: both;
+    width: 100%;
+}
+div#main {
+    /* make section 90% as wide as the body (browser window)
+    specify auto for l/r margins so if there's width leftover 
+    (100-90=10), split the difference.*/
+    clear: both;
+    width: 95%;
+    margin: 0 auto 0 auto
+}
+div#content {
+    width: 79%; /* 79% of main section */
+    float: right;
+}
+div#sidebar {
+    width: 18%;
+    float: left;
+    
+    /* position: fixed; */
+    /* background-color: blue; */
+}
+div.inset {
+    /* an inset of the main section should have 90% width relative 
+    to the main section*/
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
+div#footer {
+    clear: both;
+    text-align: center;
+}
+
+div#header h2, div#invisible-header h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    margin-left: 2%;
+}
+div#header img, div#invisible-header img {
+    float: left;
+    margin: .9em .6em 0 .75em;
+}
+
+div#navbar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+div#navbar ul li {
+    text-align: center;
+    display: inline;
+    width: 18%;
+    float: left;
+    margin-right: 0.5em;
+}
+div#navbar ul li a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    font-weight: 900;
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 0.35em;
+}
+div#navbar ul li.changeBackground {
+    background-color: #3399ff;
+}
+div#navbar ul li.changeBackground:hover {
+    background-color: #99ccff;
+}
+
+div#main li {
+    margin-bottom: 1em;
+}
+
+div#footer a {
+    color: gray;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Courier New';
+    font-size: 2em;
+}
+
+.mono {
+    font-family:'Courier New', Courier, monospace
+}

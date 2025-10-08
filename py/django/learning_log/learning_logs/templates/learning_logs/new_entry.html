@@ -1,0 +1,19 @@
+<!-- A form where users can submit a new entry for a particular topic. -->
+{% extends "learning_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h3><a href="{% url 'learning_logs:topic' topic.id %}">{{topic}}</a></h3>
+{% endblock page_header %}
+
+{% block content %}
+    <p>Add new entry:</p>
+    <form method="post" action="{% url 'learning_logs:new_entry' topic.id %}" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button class="btn btn-primary" name="submit">Add entry</button>
+        {% endbuttons %}
+    </form>
+
+{% endblock content %}

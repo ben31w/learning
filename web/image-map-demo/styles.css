@@ -1,0 +1,13 @@
+/* This is a comment in CSS. The browser ignores comments. */
+
+/* Cascading Style Sheets (CSS) handles the styling of elements in HTML. */
+
+div#left-pane {
+    width: 60%;
+    float: left;
+}
+
+div#right-pane {
+    width: 40%;
+    float: right;
+}

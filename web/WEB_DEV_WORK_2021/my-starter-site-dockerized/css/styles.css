@@ -1,0 +1,270 @@
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  /* For font-size, 1em = the default paragraph text size */
+  font-size: 1em;
+}
+
+p.blue-link {
+  text-decoration: underline;
+  color: blue;
+}
+
+p.indented {
+  /* For text-indent, ems indicate the size of the indent (0 = no indent) */
+  text-indent: 1em;
+}
+
+p.spaced-out {
+  /* For letter- and word- spacing, ems indicate how much space to add or remove */
+  letter-spacing: 0.1em;
+  word-spacing: 0.75em;
+
+  /* For line-height (i.e., spacing between lines), 1.2em is the default value */
+  line-height: 1.8em; /* 1.8em increases spacing by 50% */
+}
+
+p.no-wrap {
+  /*
+    Setting the clear property tells this element if it should be moved below 
+    any floating elements that precede it. 
+    It can be set to left (meaning it the text will clear/move below any left-floating elements), 
+    right, both, or none.
+  */
+  clear: both;
+}
+
+p#mission-statement {
+  font-size: 1.2em;
+  color: dodgerblue;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 2.25em;
+  text-align: center;
+}
+
+h4 {
+  font-size: 2em;
+}
+
+h5 {
+  font-size: 1.75em;
+}
+
+h6 {
+  font-size: 1.5em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table#schedule {
+  text-align: center;
+}
+
+tr.even-row {
+  background-color: lightgray;
+}
+
+th, td {
+  /*border styles: dotted, dashed, solid, double, groove, ridge, inset, outset*/
+  border: 1px solid black;
+  padding: 0.25em;
+}
+
+th {
+  text-align: left;
+}
+
+th.top-row {
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  border-left: none;
+  border-right: none;
+}
+
+th.width-25, td.width-25 {
+  width: 25%; /* headings and data in this class will take up 25% of the table's width */
+}
+
+blockquote {
+  font-size: 0.8em;
+  color: darkslategray;
+}
+
+ul {
+  /* 
+    Two list style positions:
+    outside- all lines in every list item will be indented equally (default)
+    inside- only the first line in each list item will have an indent
+  */
+  list-style-position: outside;
+
+  /* 
+    List style can be disc (default), circle (white disc), or square for unordered lists.
+    You can also specify an image using 'list-style-image: url("filename");'' 
+    but this is generally not recommended.
+  */
+  list-style-type: square;
+}
+
+ol {
+  /*
+    List style can be decimal (default), decimal-leading-zero (01, 02), lower-alpha,
+    upper-alpha, lower-roman, or upper-roman for ordered lists.
+  */
+  list-style-type: decimal-leading-zero;
+}
+
+li {
+  /* By default, list items have no margins */
+  margin: .5em 0 .5em 0;
+}
+
+div#top h4 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+a:active {
+  font-size: 1.25em;
+}
+
+a:visited {
+
+}
+
+img.on-its-own-line {
+  /*
+    By default, images have an inline display, meaning they will not appear on 
+    a new line when they are inserted on a webpage.
+
+    To make an image appear on a new line when it is inserted, change the display to block.
+  */
+  display: block;
+}
+
+img.inset {
+  margin-left: 1em;
+}
+
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img.wrap-around-the-right-side {
+   /* 
+    Image will float on the left side of line, so text after the image will wrap 
+    around it on the right side
+  */
+  float: left;
+  margin:  0 .75em .5em 0; /* give image some breathing room */
+}
+
+form {
+  width: 50%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+input[type="text"], textarea {
+  font-style: italic;
+}
+
+input[type="submit"] {
+  font-size: 1.5em;
+}
+
+.typewriter {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.important {
+  /* 
+    Weight comes in 100-900 scale. 400 is default. 
+    Can also use words lighter, normal, bold, and bolder.
+  */
+  font-weight: 900; 
+}
+
+.overemphasized {
+  /* You can also make text bold by adjusting the font-style property. */
+  font-style: italic bold;
+}
+
+.pretty {
+  /* Text can be aligned using these words: left, right, center, justify */
+  text-align: justify;
+}
+
+.centered {
+  text-align: center;
+}
+
+.date-style {
+  text-align: right;
+}
+
+.red {
+  /* List of CSS color keywords:  https://www.crockford.com/colors.html */
+  color: red;
+}
+
+.royal-blue {
+  /* 
+    Colors can be specified in the hex format #rrggbb, 
+    where rr=red, gg=green, and bb=blue in hexadecimal values (00=0, 0f=16, 10=17, ff=255)
+    Color picker:  www.colorpicker.com
+  */
+  color: #1f85de;
+}
+
+.offset {
+  /* 
+    There are many ways to give text a margin of whitespace on any side.
+    If you give the 'margin' property one em value, every side will have a margin with this value.
+    Alternatively, you can give the margin property four values to specify the top, right, bottom, and left margins.
+  */
+  margin: 2em;
+}
+
+.light-padding {
+  /*
+    You can also use the properties margin-top, margin-right, etc. to specify a margin on one side
+  */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.boxed {
+  /*
+    For the border property, you must assign 3 values. 
+    The first value specifies the border-width in pixels.
+    The second value is a border style (dotted, dashed, solid, double, groove, ridge, inset, outset).
+    The third value is a color.
+
+    You can specify the border on certain sides using border-top, border-right, etc.
+  */
+  border: 5px outset red;
+
+  /*
+    The padding property adds whitespace between text and borders, 
+    and its syntax is the exact same as the margin property.
+  */
+  padding: 0.1em;
+}

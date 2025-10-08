@@ -1,0 +1,35 @@
+<!--
+This page displays the user's topics.
+The user can then click each topic to open a specific page about that topic.
+-->
+
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+    <h1>Topics</h1>
+{% endblock page_header %}
+
+{% block content %}
+    <!-- List of topics the user has created -->
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <!-- topic view needs to be passed a topic id -->
+                <h3>
+                    <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+                </h3>
+            </li>
+        {% empty %}
+            <li><h3>No topics have been added yet.</h3></li>
+        {% endfor %}
+    </ul>
+
+    <!-- Link to the new topic form -->
+    <h3>
+        <a href="{% url 'learning_logs:new_topic' %}"
+           class="btn btn-primary"
+           role="button">
+            Add a new topic
+        </a>
+    </h3>
+{% endblock content %}

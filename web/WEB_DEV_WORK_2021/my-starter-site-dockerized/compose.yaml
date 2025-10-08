@@ -1,0 +1,17 @@
+# Comments are provided throughout this file to help you get started.
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+version: '3'
+services:
+  # Define a service called "web" to act as web server. 
+  # It is based on the nginx image.
+  # We mount this project's files to the container, so nginx can find the html.
+  # ^ This seems to be necessary when you have more than a single web page.
+  web:
+    image: nginx:latest
+    container_name: nginx-app
+    volumes:
+      - ./:/usr/share/nginx/html
+    ports:
+      - "81:80"

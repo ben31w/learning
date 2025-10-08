@@ -1,0 +1,20 @@
+<!--
+Base template for other HTML pages to extend. It has a navbar at the top.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        <a href="{% url 'pizzas:index' %}">The :Pizzeria</a> -
+        <a href="{% url 'pizzas:menu' %}">Menu</a>
+
+    </p>
+
+    {% block content %}{% endblock content %}
+</body>
+</html>

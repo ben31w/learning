@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1>Hello World</h1>
+
+    <!-- Inline event handling
+        - embedding JavaScript code into HTML code to handle events.
+        - simple but usually not preferred 
+        - (HTML = content, JavaScript = behavior).
+        - Use attributes like onclick, onmouseover, onmouseout, 
+          onfocus, onblur, onsubmit, etc. 
+        - The value of these attributes is JavaScript code!
+        
+        - Alternative: handle events entirely inside JavaScript file.
+    -->
+    <input type="button" value="Click me" onclick="greet('Ben');"
+        onmouseover="value='To log something'; this.style.color = 'green';"
+        onmouseout="value='Click me'; this.style.color = 'black';">
+    <br><br>
+
+    <form onsubmit="return validateForm();">
+        <fieldset>
+            Email:<br>
+            <input type="text" id="email" onfocus="makeFieldYellow('email');" onblur="makeFieldWhite('email');">
+            <br><br>
+
+            Zip code:<br>
+            <input type="text" id="zip" maxlength="5" onfocus="makeFieldYellow('zip');"
+                onblur="makeFieldWhite('zip'); fillInCity();">
+            <br><br>
+
+            City:<br>
+            <input type="text" id="city" onfocus="makeFieldYellow('city');" onblur="makeFieldWhite('city');">
+            <br><br>
+
+            <input type="submit" value="Submit!">
+        </fieldset>
+    </form>
+    
+    <p id="loris">
+        Slow lorises are a groups of several species of strepsirrhine
+        primates which make up the genus Nyctivebus.
+        <a href="javascript:void(0)" id="loris-paragraph-link">Click for more.</a>
+    </p>
+    <p id="loris-list">
+        <a href="javascript:void(0)" onclick="createLorisList();">Click for a list of lorises.</a>
+    </p>
+
+    <img id="wario-img" src="images/Wario Neutral.png"
+    onmouseover="swapPic(id, 'images/Wario Happy.png');"
+    onmouseout="swapPic(id, 'images/Wario Neutral.png');">
+    <br>
+
+    <!-- It's best practice to put the script elements 
+    at the bottom of the body section cause Web browsers
+    parse HTML files start to finish. 
+    
+    Exception: 3rd party scripts may need to be put in 
+    the head section.
+
+    Could write the script directly inside the script tag,
+    but it's best to link to a js file.-->
+    <script src="index.js"></script>
+</body>
+
+</html>

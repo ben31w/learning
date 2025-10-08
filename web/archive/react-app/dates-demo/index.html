@@ -1,0 +1,31 @@
+<!-- This is a comment in HTML. The browser ignores comments. -->
+
+<!-- HTML handles the layout of a webpage, and how web pages link to each other. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker</title>
+</head>
+<body>
+    <form action="javascript:changeDate(date.value)">
+        Enter a new date:
+        <input type="date" id="date">
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <p>
+        <button type="button" onclick="decDay(document.getElementById('date-label').innerHTML)"><</button>
+        <!-- date label's text is initialized dynamically by JS -->
+        <span id="date-label" style="font-family: monospace; font-size: 2em;"></span>
+        <button type="button" onclick="incDay(document.getElementById('date-label').innerHTML)">></button>
+    </p>
+    
+
+    <!-- Linking an HTML doc to a JavaScript file is done using the <script> tag -->
+    <script src="index.js"></script>
+</body>
+</html>

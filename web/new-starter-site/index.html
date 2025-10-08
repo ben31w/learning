@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <title>HTML, CSS, & Javascript Practice</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div id="main">
+        <h1>My web programming practice site</h1>
+            
+        <h2>HTML</h2>
+        <p>An HTML file tells the browser how to format the content of a web page.
+            1 HTML file specifies the format of one web page. HTML files consist 
+            of tags and text. The tags specify how the text of the web page should be 
+            formatted. The top line of text for this web page is inside "heading 1" 
+            tags (&lt;h1&gt;), the next line is inside "heading 2" tags (&lt;h2&gt;), and 
+            this text is inside "paragraph" tags (&lt;p&gt;).
+        </p>
+        
+        <h3>Tags & Elements</h3>
+        <p>Almost all HTML tags come in pairs. That is, for every opening tag 
+            (i.e., &lt;p&gt;), there is also a closing tag (i.e., &lt/p&gt). The closing 
+            tag is indicated by a preceding slash. The text between the opening and
+            closing tag is what gets formatted, and what the end users see. Typically,
+            one <b>HTML element</b> consists of an opening tag, a closing tag, and the 
+            text in between.
+        </p>
+        <p>Some elements don't have closing tags. These are called <b>void elements</b>.
+            Some examples of void elements include forms of input like buttons and 
+            textfields (&lt;input&gt;), line breaks (&lt;br&gt;), and links to CSS/other 
+            files (&lt;link&gt;). Void elements only have an opening tag (no following 
+            text or closing tag). If a void element contains text (e.g., a button with 
+            the word 'Submit' on it), it is specified via an attribute.
+        </p>
+        <p>Another way to classify elements is whether they are block or inline. <b>Block</b> 
+            elements appear on their own line. By default, browsers will add space between 
+            block elements. <b>Inline</b> elements appear on the same line. Although most
+            elements are block, you can adjust the CSS property 'display' to block or inline.
+        </p>
+        
+        <h3>Attributes</h3> 
+        <p>Opening HTML tags can define <b>attributes</b> to format the element. </p>
+        <div class="inset">
+            <p>Syntax: &nbsp;&nbsp; &lt;p attribute_name='attribute_value'&gt;</p>
+            <p>Example: &lt;input type='submit' value='click me to do nothing'&gt;</p>
+            <input type='submit' value='click me to do nothing'>
+        </div>
+        
+        <h4>Special attributes</h4>
+        <ul>
+            <li><b>class</b> is a useful attribute that allows several elements to share 
+                the same format. In conjunction with CSS, classes enable a web page to 
+                look appealing.</li>
+            <li><b>id</b> is a useful attribute that uniquely identifies an element. id's 
+                can be included in a hypertext reference to link to a specific part of a 
+                web page. It is also used by Javascript to give elements interactivity.</li>
+        </ul>
+        <div class="inset">
+            <p>ex:</p>
+            <div class="mono">
+                <p>&lt;div id="top"&gt;...&lt;/div&gt;</p>
+                <p>&lt;a href=#top&gt;Back to Top&lt;/a&gt;</p>
+            </div>
+        </div>
+        
+        
+        <h3 id="inheritance">Inheritance</h3>
+        <p>When tags are nested, the inner tag <b>inherits</b> attributes from the outer tag.</p>
+        <p>ex:</p>
+        <div class="inset">
+            <div class="mono">
+                <p>&lt;div class="blue-text"&gt;</p>
+                <div class="inset">
+                    <p>&lt;h4&gt;Heading&lt;/h4&gt;</p>
+                    <p>&lt;p&gt;This paragraph inherits blue text&lt;/p&gt;</p>
+                </div>
+                <p>&lt;/div&gt;</p>
+            </div>
+            
+            <div class="blue-text">
+                <h4>Heading</h4>
+                <p>This paragraph inherits blue text</p>
+            </div>
+        </div>
+
+        <h3>Common HTML elements (with relevant attributes)</h3>
+        <p style='font-style: italic;'>Common HTML elements</p>
+        <ul style='text-indent: 1;'>
+            <li>&ltp&gt paragraph</li>
+            <li>&lth1&gt heading 1: this is the one that search engines look for. Should 
+                be one per HTML file</li>
+            <li>&lta&gt anchor: specify a hypertext reference to another web page. Can 
+                be a hyperlink to a 
+                different webiste (URL) or a hyperlink to a page on the same site (filepath) </li>
+            <li>&ltdiv&gt division: used to divide the document into sections. Convenient 
+                way to give certain elements shared properties (see <a href="#inheritance">inheritance</a>). 
+                div is handy for setting default styling within a section, but the most important 
+                function of div is layout positioning (separating header, navigation bar, main, content, etc.).</li>
+            <li>&ltform&gt form: create a form to collect user input.</li>
+            <ul>
+                <li>action: specifies the backend program that will process the information when the form is submitted. This program is stored & runs on the server. Common backend processing languages include PHP, Ruby, Python, Perl, Java, & C#.</li>
+                <li>method: specifies the HTTP method to use when sending form-data. Default method is 'get', can also be set to 'post'. Essentially GET is used to retrieve remote data, and POST is used to insert/update remote data. Most forms will use post.</li>
+            </ul>
+        </ul>
+        <p style='font-style: italic;'>Common void elements</p>
+        <ul style='text-indent: 1;'>
+            <li>&ltinput&gt input: used to retreive user input inside a form.</li>
+            <ul>
+                <li>type: the type of input to use.</li>
+                <ul>
+                    <li>type='text': a textfield</li>
+                    <li>type='password': a password textfield</li>
+                </ul>
+                <li>name: the variable name that the backend program (specified in &ltform action='...' method='post'&gt) will use to reference this data </li>
+            </ul>
+            <li>&ltbr&gt break</li>
+            <li>&ltimg&gt image: an image. You can make an image a link to another web page by nesting it inside an anchor tags: &lta&gt&ltimg&gt&lt/a&gt</li>
+            <ul>
+                <li>src: the filepath of the image</li>
+                <li>alt: the alternate text, what the user sees if the image doesn't load.</li>
+            </ul>
+        </ul>
+    </div>
+</body>
+
+</html>

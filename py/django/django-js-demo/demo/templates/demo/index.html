@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img src = "{% static 'demo/IMG_4288.jpg' %}" height="400" width="300">
+    <img src = "{% static 'django_js_demo/IMG_5490.JPG' %}" height="400" width="300">
+    <br>
+    <h1>Hi its working</h1>
+
+    <p>
+        <button onclick="decDate()"><</button>
+        <!-- innerHTML initialized in JS -->
+        <span id="date-label" style="font-family: monospace; font-size: 1.5em;"></span>
+        <button onclick="incDate()">></button>
+    </p>
+
+    <script src="{% static 'demo/index.js' %}"></script>
+</body>
+</html>

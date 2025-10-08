@@ -1,0 +1,20 @@
+# Ignore jenkins and docker directories for now, because they 
+# contain various sub-modules (forked Git repos inside a Git repo).
+jenkins/*
+docker/*
+
+# Ignore all IDE-related directories
+*.idea*
+*.vscode*
+
+# Python
+*.venv*
+*.pyc
+__pycache__/
+
+# SQLite
+*.sqlite3
+
+# Custom venv names... why did I do this?
+*sg_env*
+
