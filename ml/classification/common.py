@@ -20,12 +20,12 @@ import numpy as np
 # ADJUSTABLE PARAMS
 ###################
 # Dataset can be 'mnist' or 'fashion-mnist'
-DATASET = 'mnist'
+DATASET = 'fashion-mnist'
 
 # Num images to use, can set to None to use all images (accurate, but slow).
 # KNN is a lazy learning algorithm that trains at the same time it tests,
 #  which unfortunately makes is very slow if there is too much training data.
-TRAINING_DATA_SIZE = 5000  # num images to use for training.
+TRAINING_DATA_SIZE = 10_000  # num images to use for training.
 TESTING_DATA_SIZE = 100  # num images to use for testing.
 
 ###################
@@ -163,7 +163,7 @@ def get_most_frequent_element(l):
     """Get most frequently occurring item in list"""
     return max(l, key=l.count)
 
-def print_results(y_pred, y_test, raw_X_test, start_time=None):
+def print_results(y_pred, y_test, raw_X_test, start_time=None, model="Not specified"):
     """
     Print results and accuracy of predicted labels (y_pred), given real
     labels (y_test).
@@ -173,22 +173,33 @@ def print_results(y_pred, y_test, raw_X_test, start_time=None):
 
     Lastly, pass in start_time to print the total run time of the file.
     """
+    to_print = (f"DATASET:  {DATASET}"
+                f"\nTRAINING_DATA_SIZE: {TRAINING_DATA_SIZE}"
+                f"\nTESTING_DATA_SIZE:  {TESTING_DATA_SIZE}"
+                f"\nMODEL: {model}")
+
+    results = ""
     num_correct = 0
-    print(f"\n IDX  PASS")
     for idx, (pred, expected) in enumerate(zip(y_pred, y_test)):
         correct = pred == expected
-        print(f"({idx:4}) {correct:5} {f'PREDICTION: {pred}   EXPECTED: {expected}' if not correct else ''}")
+        results += f"\n({idx:4}) {correct:5} {f'PREDICTION: {pred}   EXPECTED: {expected}' if not correct else ''}"
         if correct:
             num_correct += 1
         else:
             write_png(raw_X_test[idx], f"{IMG_DIR}/{idx}.png")
-
-    print(f"ACCURACY: {num_correct / len(y_pred)}")
+    to_print += f"\n\nACCURACY: {num_correct / len(y_pred)}"
 
     if start_time:
         end_time = int(time.time())
         run_time = end_time - start_time
-        print(f"RUNTIME: {run_time // 60:02}:{run_time % 60:02}")
+        to_print += f"\nRUNTIME: {run_time // 60:02}:{run_time % 60:02}"
+
+    # Detailed results
+    to_print += f"\n\n IDX  PASS"
+    to_print += results
+
+    with open(f"logs/{DATASET}_{TRAINING_DATA_SIZE}_{TESTING_DATA_SIZE}_{model}.log", "w") as f:
+        print(to_print, file=f)
 
 # Static filepaths
 DATA_DIR = "data"

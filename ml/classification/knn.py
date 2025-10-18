@@ -40,7 +40,7 @@ def main():
     # Use KNN to make predictions
     y_pred = knn(X_train, y_train, X_test, k=3)
 
-    print_results(y_pred, y_test, raw_X_test, start_time)
+    print_results(y_pred, y_test, raw_X_test, start_time, "KNN")
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ def main():
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 
-    print_results(y_pred, y_test, raw_X_test, start_time)
+    print_results(y_pred, y_test, raw_X_test, start_time, "LogisticRegression")
 
 
 if __name__ == '__main__':
