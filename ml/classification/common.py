@@ -20,12 +20,12 @@ import numpy as np
 # ADJUSTABLE PARAMS
 ###################
 # Dataset can be 'mnist' or 'fashion-mnist'
-DATASET = 'fashion-mnist'
+DATASET = 'mnist'
 
 # Num images to use, can set to None to use all images (accurate, but slow).
 # KNN is a lazy learning algorithm that trains at the same time it tests,
 #  which unfortunately makes is very slow if there is too much training data.
-TRAINING_DATA_SIZE = 10_000  # num images to use for training.
+TRAINING_DATA_SIZE = 5_000  # num images to use for training.
 TESTING_DATA_SIZE = 100  # num images to use for testing.
 
 ###################
@@ -54,9 +54,7 @@ def read_images(filename, max_num_images=None):
     1 image = list of rows. 1 row = list of pixel values
 
     Pixel values are unsigned byte/unit8.
-    These are 0-255 values. According to MNIST file format, 0 is white and 255
-    is black. HOWEVER, PIL treats 0 as black and 255 as white, so we apply an
-    inversion before returning.
+    0 is black and 255 is white.
 
     MNIST file format: https://yann.lecun.org/exdb/mnist/index.html
     """
@@ -77,8 +75,7 @@ def read_images(filename, max_num_images=None):
                 image_row = []
                 for col in range(num_cols):
                     pixel = bytes_to_int(f.read(1))
-                    flip_pixel = abs(255 - pixel)
-                    image_row.append(flip_pixel)
+                    image_row.append(pixel)
                 image.append(image_row)
             images.append(image)
     return images
