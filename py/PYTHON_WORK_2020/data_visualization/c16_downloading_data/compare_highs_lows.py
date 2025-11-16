@@ -73,7 +73,7 @@ with open(file_2) as f:
             dv_lows.append(low)
 
 # Plot the data.
-plt.style.use('seaborn')
+# plt.style.use('seaborn')
 fig, ax = plt.subplots()
 ax.plot(sitka_dates, sitka_highs, c='red', alpha=0.5)
 ax.plot(sitka_dates, sitka_lows, c='blue', alpha=0.5)

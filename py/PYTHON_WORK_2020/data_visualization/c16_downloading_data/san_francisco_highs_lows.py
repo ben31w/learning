@@ -40,7 +40,7 @@ with open(filename) as f:
             lows.append(low)
 
 # Plot the data.
-plt.style.use('seaborn')
+# plt.style.use('seaborn')
 fig, ax = plt.subplots()
 ax.plot(dates, highs, c='red', alpha=0.5)
 ax.plot(dates, lows, c='blue', alpha=0.5)

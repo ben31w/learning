@@ -90,7 +90,7 @@ with open(file_3) as f:
             sf_prcp.append(prcp)
 
 # Plot the data.
-plt.style.use('seaborn')
+# plt.style.use('seaborn')
 fig, ax = plt.subplots()
 ax.plot(sitka_dates, sitka_prcp, c='blue')
 ax.plot(sf_dates, sf_prcp, c='green')
