@@ -1,0 +1,5 @@
+# When you run main.py¸ it generates these HTML files.
+# Unfortunately, there are slight differences every time they regenerate.
+# Ignore these differences.
+dateVsWeight.html
+gdpPerCapVsLifeExpGraph.html
