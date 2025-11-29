@@ -1,3 +1,7 @@
+"""
+Attempt to use built-in tempfile, webbrowser, and http.server libraries, but it doesn't
+appear to work :/
+"""
 import tempfile
 import webbrowser
 import threading

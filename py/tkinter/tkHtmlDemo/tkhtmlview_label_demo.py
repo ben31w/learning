@@ -1,3 +1,7 @@
+"""
+https://pypi.org/project/tkhtmlview/
+HelloWorld tkhtmlview with HTMLLabel.
+"""
 # import tkinter as tk
 # from zlib import adler32
 #

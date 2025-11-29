@@ -1,3 +1,9 @@
+"""
+This script contains utility functions for HTML hashing and compression.
+When run, it hashes and compresses a given HTML string, then decompresses and
+opens the output in a web browser.
+"""
+
 import hashlib
 import webbrowser
 import zlib
