@@ -11,8 +11,7 @@ from plotly import offline
 
 # Make an API call and store the response.
 url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
-headers = {'Accept': 'application.vnd.github.v3+json'}
-r = requests.get(url, headers=headers)
+r = requests.get(url)
 print(f"Status code: {r.status_code}")
 
 # Process results.
@@ -46,14 +45,14 @@ data = [{
 }]
 layout = {
     'title': f"Most-Starred Python Projects on Github ({date.today()})",
-    'titlefont': {'size': 28},
+    'font': {'size': 28},
     'xaxis': {
         'title': 'Repository',
-        'titlefont': {'size': 16},
+        'tickfont': {'size': 16},
     },
     'yaxis': {
         'title': 'Stars',
-        'titlefont': {'size': 16},
+        'tickfont': {'size': 16},
     },
 }
 

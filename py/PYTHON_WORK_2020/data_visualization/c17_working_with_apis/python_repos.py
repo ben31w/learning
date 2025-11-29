@@ -2,16 +2,13 @@
 Generate an API call to GitHub. Get a collection of all the Python repositories
 currently hosted on GitHub. Then print the 30 most popular.
 
-Updated: 2023.04.19
+Updated: 2025.11.29
 """
 import requests
 
 # Make an API call to GitHub and store the response.
-# GitHub is currently on the third version of its API, so we define headers for
-# the API call that explicitly ask to use this version of the API.
 url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
-headers = {'Accept': 'application/vnd.github.v3+json'}
-r = requests.get(url, headers=headers)
+r = requests.get(url)
 print(f"Status code: {r.status_code}")
 
 
