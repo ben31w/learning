@@ -1,0 +1,3 @@
+[submodule "py/tkinter/cefpython_demo/cefpython"]
+	path = py/tkinter/cefpython_demo/cefpython
+	url = https://github.com/cztomczak/cefpython.git
