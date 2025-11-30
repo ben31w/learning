@@ -30,8 +30,9 @@
 - `dex DESKTOP_FILE` run a desktop file 
 
 ## Zip Files
-- `tar -xf ZIP_FILE` extract zip file in current directory, or you can specify a destination with -c.
-- `tar -cf ZIP_FILE` create zip file
+- `tar -cvf TAR_FILE_OUT DIR_IN` create tar file from a directory
+- `tar -xvf TAR_FILE` extract zip file in current directory
+- `tar -xvf TAR_FILE -C DIR` extract zip file to given directory. This is a capital C!!
 - `7z e 7ZIP_FILE.7z` extract 7-Zip file in current directory, or you can specify a destinatino with -o.
 - `gunzip *`  extract all .tar.gz files in current directory, and delete .tar.gz files
 
@@ -90,6 +91,17 @@
 - `source .venv/bin/activate` activated virtual environment
 - `deactivate` deactvate virtual environment
 
+## pyenv
+- Setup instructions
+  - https://itsfoss.gitlab.io/post/how-to-manage-multiple-python-versions-with-pyenv-on-linux/ 
+  - https://www.pythontutorials.net/blog/importerror-no-module-named-tkinter-please-install-the-python3-tk-package/
+- `pyenv install VERSION` install specified version
+- `pyenv install --list`  list all versions available for installation
+- `pyenv global VERSION` set global python version
+- `pyenv local VERSION` set current directory's python version
+- `pyenv shell VERSION` set current shell's python version
+- `pyenv version` list currently selected version
+- `pyenv versions`  list installed versions
 
 
 # User Management
