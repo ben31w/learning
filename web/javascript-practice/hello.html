@@ -1,0 +1,57 @@
+<!--
+    Revisiting JavaScript in 2025. Hopefully, I learn it better this time.
+    Very basic overview of a general DOM:
+    
+    |-DOCTYPE: html
+    |-HTML
+    |--HEAD
+    |---META
+    |---TITLE
+    |---LINK (reference CSS)
+    |---SCRIPT (asynchronous reference to JS)
+    |--BODY
+    |---H1
+    |---P, ETC.
+
+    Sometimes, web browsers can infer HTML, HEAD, and BODY if they are missing, but
+    it's good practice to include them. https://stackoverflow.com/questions/5641997/is-it-necessary-to-write-head-body-and-html-tags
+
+    The modern best practice with script tags is to include them in the head section
+    with 'async' or 'defer'. https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup
+    ^ I think?
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello JS</title>
+    <script src="hello.js" async defer></script>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>
+        HTML defines content. JavaScript defines behavior. 
+        This HTML file invokes JavaScript functions.
+        The JavaScript file implements JavaScript functions.
+    </p>
+
+    <h2>Salutations</h2>
+    <form onsubmit="return validateForm()">
+        <fieldset>
+            Name:<br>
+            <input type="text" id="name">
+        </fieldset>
+        <br>
+        <!-- no need to define onclick. form tag handles this-->
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="greeting-p"></p>
+
+    
+</body>
+
+</html>
