@@ -12,6 +12,7 @@
     |--BODY
     |---H1
     |---P, ETC.
+    |---SCRIPT (sometimes appears here)
 
     Sometimes, web browsers can infer HTML, HEAD, and BODY if they are missing, but
     it's good practice to include them. https://stackoverflow.com/questions/5641997/is-it-necessary-to-write-head-body-and-html-tags
@@ -34,18 +35,19 @@
     <h1>Welcome</h1>
     <p>
         HTML defines content. JavaScript defines behavior. 
-        This HTML file invokes JavaScript functions.
-        The JavaScript file implements JavaScript functions.
+        An HTML file can invoke JavaScript functions via attributes like onclick.
+        But it's recommended to handle all HTML events through event listeners in
+        JavaScript. So the implementation of each function and when it's invoked
+        are all contained in one file.
     </p>
 
     <h2>Salutations</h2>
-    <form onsubmit="return validateForm()">
+    <form id="greeting-form">
         <fieldset>
             Name:<br>
             <input type="text" id="name">
         </fieldset>
         <br>
-        <!-- no need to define onclick. form tag handles this-->
         <input type="submit" value="Submit">
     </form>
 
