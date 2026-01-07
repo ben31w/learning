@@ -1,5 +1,5 @@
 Note: this is a very simple demo of a multi-container app run with Docker Compose, forked from docker examples.
-I'm sure the docker-compose.yml file I wrote isn't perfect, but it runs (`docker compose up`), 
+I'm sure the `docker-compose.yml` file I wrote isn't perfect, but it runs (`docker compose up`), 
 whereas og version doesn't.
 
 # Example Voting App
