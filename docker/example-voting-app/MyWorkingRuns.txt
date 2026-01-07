@@ -1,0 +1,10 @@
+Before you create a docker-compose.yml file, it's a good idea to list
+docker run commands and test them.
+
+sudo docker run --name redis redis:alpine
+sudo docker run --name db -e POSTGRES_PASSWORD=postgres -e POSTGRES_USERNAME=postgres postgres:15-alpine
+sudo docker run --name worker --link db:db --link redis:redis worker
+sudo docker run --name vote -p 5000:80 --link redis:redis vote
+sudo docker run --name result -p 5001:80 --link db:db result
+
+
