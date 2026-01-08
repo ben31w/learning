@@ -1,5 +1,8 @@
 #!/bin/bash
+# Ping every IP address in a given network (1-254: assumes subnet /24).
+# Print each device that responds.
 
+# TODO parse $1, try to get subnet
 if [$1 == ""] ; then
     echo "Usage:  ./ipsweep.sh 192.168.1"
 else
