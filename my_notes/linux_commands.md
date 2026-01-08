@@ -61,7 +61,7 @@
 
 - `arp -a` lists arp cache
 
-- `ssh 162.243.40.233 -lroot` SSH into a computer, log in as root
+- `ssh <NAME/IP> -lroot` SSH into a computer, log in as root
 
 
 
