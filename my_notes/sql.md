@@ -3,7 +3,7 @@ PostgreSQL  MySQL            SQLite
 \l          SHOW databases;  
 \dt         SHOW tables;     SELECT name FROM sqlite_master WHERE type='table'
 \c DB       USE DB;
-			     PRAGMA table_info(table_name)  #get columns
+                             PRAGMA table_info(table_name)  #get columns
 CREATE DATABASE DB;
 DROP DATABASE DB;
 
