@@ -47,7 +47,7 @@ public class MyArrayList<Character> implements MyList<Character> {
 
     /**
      * Get item at given index. O(1)
-     * @param index
+     * @param index  index indicating item to get
      * @return item or IndexOutOfBoundsException
      */
     public char get(int index) {
@@ -60,7 +60,7 @@ public class MyArrayList<Character> implements MyList<Character> {
 
     /**
      * Remove (and return) item at given index. O(N)
-     * @param index
+     * @param index  index indicating item to get
      * @return item removed at index
      */
     public char remove(int index) {
@@ -85,8 +85,8 @@ public class MyArrayList<Character> implements MyList<Character> {
     /**
      * Append/add item to end of list. 
      * Avg case: O(1)
-     * Wors case: O(N)
-     * @param valueToAppend
+     * Worst case: O(N)
+     * @param valueToAppend  item to add to end of list
      */
     public void append(char valueToAppend) {
         if (arr.length == size) {
@@ -103,8 +103,8 @@ public class MyArrayList<Character> implements MyList<Character> {
 
     /**
      * Insert item at given index. O(N)
-     * @param valueToInsert
-     * @param index
+     * @param valueToInsert  item to insert into list
+     * @param index  index indicating where to insert
      */
     public void insert(char valueToInsert, int index) {
         if (index < 0 || index > size) {
