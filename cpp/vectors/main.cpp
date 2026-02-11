@@ -1,4 +1,5 @@
 // g++ -c main.cpp && g++ -o main.exe main.o
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
@@ -46,7 +47,10 @@ int main() {
 
     VUtil::insertInto(v, 1, 'n');
     VUtil::insertInto(v, 2, 'd');
-
     VUtil::printVectorFancy(v);
+
+    std::sort(v.begin(), v.end());
+    VUtil::printVectorFancy(v);
+
     return 0;
 }
