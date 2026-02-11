@@ -1,0 +1,3 @@
+# g++ compiler/linker output
+*.exe
+*.o
