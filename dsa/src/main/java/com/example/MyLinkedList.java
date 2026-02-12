@@ -1,31 +1,11 @@
 package com.example;
 
 class Node<Character> {
-    private char val;
-    private Node<Character> next;
+    char val;
+    Node<Character> next;
 
     public Node(char c) {
         val = c;
-        next = null;
-    }
-
-    public char getVal() {
-        return val;
-    }
-
-    public Node<Character> getNext() {
-        return next;
-    }
-
-    public void setVal(char c) {
-        val = c;
-    }
-
-    public void setNext(Node<Character> node) {
-        next = node;
-    }
-
-    public void clearNext() {
         next = null;
     }
 }
@@ -63,8 +43,8 @@ public class MyLinkedList<Character> implements MyList<Character>{
         StringBuilder sb = new StringBuilder();
         Node<Character> curr = head;
         for (int i = 0; i < size; i++) {
-            sb.append(curr.getVal());
-            curr = curr.getNext();
+            sb.append(curr.val);
+            curr = curr.next;
         }
         return sb.toString();
     }
@@ -91,9 +71,9 @@ public class MyLinkedList<Character> implements MyList<Character>{
 
         Node<Character> n = head;
         for (int i = 0; i < index; i++) {
-            n = n.getNext();
+            n = n.next;
         }
-        return n.getVal();
+        return n.val;
     }
 
     /**
@@ -107,7 +87,7 @@ public class MyLinkedList<Character> implements MyList<Character>{
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("index must be between [0, " + size + ")");
         } else if (index == 0 && size == 1) {
-            char result = head.getVal();
+            char result = head.val;
             head = null;
             tail = null;
 
@@ -115,14 +95,14 @@ public class MyLinkedList<Character> implements MyList<Character>{
             return result;
         } else {
             Node<Character> prev = head;
-            Node<Character> curr = head.getNext();
+            Node<Character> curr = head.next;
             for (int i = 1; i < index; i++) {
                 prev = curr;
-                curr = curr.getNext();
+                curr = curr.next;
             }
 
-            char result = curr.getVal();
-            prev.setNext(curr.getNext());
+            char result = curr.val;
+            prev.next = curr.next;
 
             --size;
             return result;
@@ -140,8 +120,8 @@ public class MyLinkedList<Character> implements MyList<Character>{
             head = new Node<>(valueToAppend);
             tail = head;
         } else {
-            tail.setNext(new Node<>(valueToAppend));
-            tail = tail.getNext();
+            tail.next = new Node<>(valueToAppend);
+            tail = tail.next;
         }
         ++size;
     }
