@@ -11,6 +11,9 @@ class Node<Character> {
 }
 
 
+/**
+ * Singly-linked list implementation
+ */
 public class MyLinkedList<Character> implements MyList<Character>{
     private Node<Character> head;
     private Node<Character> tail;
@@ -22,22 +25,27 @@ public class MyLinkedList<Character> implements MyList<Character>{
         size = 0;
     }
 
-//    /**
-//     * Initialize an ArrayList from an existing array.
-//     * @param existing
-//     */
-//    public MyLinkedList(char[] existing) {
-//        if (existing.length == 0) {
-//            head = null;
-//            size = 0;
-//        } else {
-//            head = new Node<Character>(existing[0]);
-//            size = existing.length;
-//            for (int i = 0; i < existing.length; i++) {
-//
-//            }
-//        }
-//    }
+   /**
+    * Initialize an ArrayList from an existing array.
+    * @param existing
+    */
+   public MyLinkedList(char[] existing) {
+       if (existing.length == 0) {
+           head = null;
+           tail = null;
+           size = 0;
+       } else {
+           head = new Node<Character>(existing[0]);
+           size = existing.length;
+
+           Node<Character> n = head;
+           for (int i = 1; i < existing.length; i++) {
+                n.next = new Node<>(existing[i]);
+                n = n.next;
+           }
+           tail = n;
+       }
+   }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -86,10 +94,15 @@ public class MyLinkedList<Character> implements MyList<Character>{
     public char remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("index must be between [0, " + size + ")");
-        } else if (index == 0 && size == 1) {
+        } else if (index == 0) {
             char result = head.val;
-            head = null;
-            tail = null;
+
+            if (size == 1) {
+                head = null;
+                tail = null;
+            } else {
+                head = head.next;
+            }
 
             --size;
             return result;
@@ -103,6 +116,10 @@ public class MyLinkedList<Character> implements MyList<Character>{
 
             char result = curr.val;
             prev.next = curr.next;
+
+            if (index == size - 1) {
+                tail = prev;
+            }
 
             --size;
             return result;
@@ -127,13 +144,31 @@ public class MyLinkedList<Character> implements MyList<Character>{
     }
 
     /**
-     * Insert item at given index. O(_)
+     * Insert item at given index. O(N)
      *
      * @param valueToInsert item to insert into list
      * @param index         index indicating where to insert
      */
     @Override
     public void insert(char valueToInsert, int index) {
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException("index must be [0, " + size + ")");
+        }
 
+        Node<Character> n = head;
+        for (int i = 0; i < index; i++) {
+            n = n.next;
+        }
+
+        Node<Character> newNode = new Node<>(valueToInsert);
+        newNode.next =  n.next;
+        n.next = newNode;
+        ++size;
+
+        if (index == size - 1) {
+            tail = newNode;
+        } else if (index == 0) {
+            head = newNode;
+        }
     }
 }
