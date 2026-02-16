@@ -18,5 +18,9 @@ int main() {
     cout << ben.getTime() << endl;
     cout << dragos.getTime() << endl;
 
+    cout << placeholder.add(1, 1) << endl;
+    cout << ben.add(2, 2) << endl;
+    cout << dragos.add(3, 3) << endl;
+
     return 0;
 }

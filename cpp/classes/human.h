@@ -23,7 +23,7 @@ namespace Time {
             Human(const std::string& n, Time::Watch* w);
             // --methods--
             std::string getTime();
-            int add(int, int);
+            std::string add(int a, int b); // TODO use references
     };
 }
 

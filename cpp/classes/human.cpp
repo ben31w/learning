@@ -27,8 +27,8 @@ namespace Time {
         return result;
     }
 
-    int add(int a, int b) {
-        return a + b;
+    string Human::add(int a, int b) {
+        return name + ": " + to_string(a) + " + " + to_string(b) + " = " + to_string(a+b);
     }
 
     // --helper methods--
