@@ -1,12 +1,14 @@
 #include <ctime>
 
-#include "watch.h"
-
-using namespace std;
-
 //////////////////
 // "CLASS-TYPE" CPP FILE RULES
 //////////////////
+
+// Always include the corresponding class-type header file.
+#include "watch.h"
+
+// You can add `using namespace` in cpp files.
+using namespace std;
 
 // Wrap the class's methods in the same namespace that the header defines.
 // Scope methods to the class with `rtype ClassName::method`
