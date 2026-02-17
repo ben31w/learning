@@ -39,19 +39,19 @@ int main() {
 
     cout << "---Init pointer---" << endl;
     cout << "i\tr\t&i\t\t&r\t\tp\t\t*p\t&p" << endl;
-    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << '\t' << endl;
+    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << endl;
 
     *p = 40;
 
-    cout << "---Edit pointer---" << endl;
+    cout << "---De-reference pointer to update value---" << endl;
     cout << "i\tr\t&i\t\t&r\t\tp\t\t*p\t&p" << endl;
-    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << '\t' << endl;
+    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << endl;
 
     i = 50;
 
     cout << "---Edit variable again---" << endl;
     cout << "i\tr\t&i\t\t&r\t\tp\t\t*p\t&p" << endl;
-    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << '\t' << endl;
+    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << endl;
 
     // Bonus:
     // * as unary operator is pointer dereference.
@@ -59,9 +59,17 @@ int main() {
 
     *p = *p * 2;
 
-    cout << "---Edit pointer again---" << endl;
+    cout << "---De-reference pointer to update value again---" << endl;
     cout << "i\tr\t&i\t\t&r\t\tp\t\t*p\t&p" << endl;
-    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << '\t' << endl;
+    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << endl;
+
+    // Re-assign pointer to new value
+    int j = 20;
+    p = &j;
+
+    cout << "---Reassign pointer---" << endl;
+    cout << "i\tr\t&i\t\t&r\t\tp\t\t*p\t&p\t\tj\t&j" << endl;
+    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << '\t' << j << '\t' << &j << endl;
 
     // You can do itelligent logic with pointer arithmetic, ex: iteration.
     // Here, we just increment the pointer and get a random value from memory every time.
@@ -69,8 +77,8 @@ int main() {
     ++p;
 
     cout << "---Increment pointer---" << endl;
-    cout << "i\tr\t&i\t\t&r\t\tp\t\t*p\t&p" << endl;
-    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << '\t' << endl;
+    cout << "i\tr\t&i\t\t&r\t\tp\t\t*p\t\t&p\t\tj\t&j" << endl;
+    cout << i << '\t' << r << '\t' << &i << '\t' << &r << '\t' << p << '\t' << *p << '\t' << &p << '\t' << j << '\t' << &j << endl;
 
 
     return 0;    

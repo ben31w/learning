@@ -1,0 +1,38 @@
+This is the stdout of the main program. It's copy-and-pasted.
+I could have done something fancier, like getting the program to log to 
+stdout and this file. But it wasn't immediately trivial (you can't 
+append &r to a string) and didn't seem like the best use of time right now.
+
+Also, the memory addresses would change every time you run the program, 
+meaning unnecessary git diffs.
+
+2026-02-17
+======================================
+
+---Init variable and reference---
+i       r       &i              &r
+10      10      0x7ffd13514c40  0x7ffd13514c40
+---Edit variable---
+i       r       &i              &r
+20      20      0x7ffd13514c40  0x7ffd13514c40
+---Edit reference---
+i       r       &i              &r
+30      30      0x7ffd13514c40  0x7ffd13514c40
+---Init pointer---
+i       r       &i              &r              p               *p      &p
+30      30      0x7ffd13514c40  0x7ffd13514c40  0x7ffd13514c40  30      0x7ffd13514c48
+---De-reference pointer to update value---
+i       r       &i              &r              p               *p      &p
+40      40      0x7ffd13514c40  0x7ffd13514c40  0x7ffd13514c40  40      0x7ffd13514c48
+---Edit variable again---
+i       r       &i              &r              p               *p      &p
+50      50      0x7ffd13514c40  0x7ffd13514c40  0x7ffd13514c40  50      0x7ffd13514c48
+---De-reference pointer to update value again---
+i       r       &i              &r              p               *p      &p
+100     100     0x7ffd13514c40  0x7ffd13514c40  0x7ffd13514c40  100     0x7ffd13514c48
+---Reassign pointer---
+i       r       &i              &r              p               *p      &p              j       &j
+100     100     0x7ffd13514c40  0x7ffd13514c40  0x7ffd13514c44  20      0x7ffd13514c48  20      0x7ffd13514c44
+---Increment pointer---
+i       r       &i              &r              p               *p              &p              j       &j
+100     100     0x7ffd13514c40  0x7ffd13514c40  0x7ffd13514c48  324095048       0x7ffd13514c48  20      0x7ffd13514c44
