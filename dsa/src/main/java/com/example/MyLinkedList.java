@@ -156,7 +156,7 @@ public class MyLinkedList<Character> implements MyList<Character>{
         }
 
         Node<Character> n = head;
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < index - 1; i++) {
             n = n.next;
         }
 

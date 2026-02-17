@@ -13,6 +13,7 @@ public class Main {
         linkedList.append('N');
         linkedList.append('W');
         linkedList.remove(1);
+        linkedList.insert('M', 1);
         System.out.println(linkedList);
     }
 }
