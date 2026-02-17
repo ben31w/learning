@@ -7,76 +7,146 @@ import static org.junit.jupiter.api.Assertions.*;
 class ListTest {
 
     private char[] initialData = {'a', 'b', 'c', 'd'};
-    // private final MyArrayList<Character> charList = new MyArrayList<>(initialData);
-    private final MyLinkedList<Character> charList = new MyLinkedList<>(initialData);
+     private final MyArrayList<Character> al = new MyArrayList<>(initialData);
+    private final MyLinkedList<Character> ll = new MyLinkedList<>(initialData);
 
     @Test
-    void getSizeTest() {
-        assertEquals(4, charList.getSize());
+    void getSizeArrayListTest() {
+        assertEquals(4, al.getSize());
     }
 
     @Test
-    void getTest() {
-        assertEquals('a', charList.get(0));
-        assertEquals('b', charList.get(1));
+    void getArrayListTest() {
+        assertEquals('a', al.get(0));
+        assertEquals('b', al.get(1));
     }
 
     @Test
-    void removeTest() {
-        char item1 = charList.remove(1);
+    void removeArrayListTest() {
+        char item1 = al.remove(1);
         assertEquals(
-            'b', 
-            item1,
-            "charList should be \"acd\", actual: \"" + charList + "\""
+                'b',
+                item1,
+                "al should be \"acd\", actual: \"" + al + "\""
         );
-        assertEquals(3, charList.getSize());
+        assertEquals(3, al.getSize());
     }
 
     @Test
-    void removeOutOfBoundsTest() {
+    void removeOutOfBoundsArrayListTest() {
         assertThrows(
-            IndexOutOfBoundsException.class,
-            () -> charList.remove(10),
-            "remove should throw IndexOutOfBoundsException"
+                IndexOutOfBoundsException.class,
+                () -> al.remove(10),
+                "remove should throw IndexOutOfBoundsException"
         );
     }
 
     @Test
-    void appendTest() {
-        charList.append('e');
+    void appendArrayListTest() {
+        al.append('e');
         assertEquals(
-            'e', 
-            charList.get(charList.getSize() - 1),
-            "charList should be \"abcde\", actual: \"" + charList + "\""
+                'e',
+                al.get(al.getSize() - 1),
+                "al should be \"abcde\", actual: \"" + al + "\""
         );
         assertEquals(
-            5,
-            charList.getSize()
+                5,
+                al.getSize()
         );
     }
 
     @Test
-    void append2Test() {
-        charList.append('e');
-        charList.append('f');
-        assertEquals('e', charList.get(charList.getSize() - 2));
-        assertEquals('f', charList.get(charList.getSize() - 1));
-        assertEquals(6, charList.getSize());
+    void append2ArrayListTest() {
+        al.append('e');
+        al.append('f');
+        assertEquals('e', al.get(al.getSize() - 2));
+        assertEquals('f', al.get(al.getSize() - 1));
+        assertEquals(6, al.getSize());
     }
 
     @Test
-    void insertTest() {
-        charList.insert('e', 2);
-        assertEquals('e', charList.get(2));
-        assertEquals(5, charList.getSize());
+    void insertArrayListTest() {
+        al.insert('e', 2);
+        assertEquals('e', al.get(2));
+        assertEquals(5, al.getSize());
     }
 
     @Test
-    void insertOutOfBoundsTest() {
+    void insertOutOfBoundsArrayListTest() {
         assertThrows(
-            IndexOutOfBoundsException.class,
-            () -> charList.insert('e', 10),
-            "insert should throw IndexOutOfBoundsException"
+                IndexOutOfBoundsException.class,
+                () -> al.insert('e', 10),
+                "insert should throw IndexOutOfBoundsException"
+        );
+    }
+
+    @Test
+    void getSizeLinkedListTest() {
+        assertEquals(4, ll.getSize());
+    }
+
+    @Test
+    void getLinkedListTest() {
+        assertEquals('a', ll.get(0));
+        assertEquals('b', ll.get(1));
+    }
+
+    @Test
+    void removeLinkedListTest() {
+        char item1 = ll.remove(1);
+        assertEquals(
+                'b',
+                item1,
+                "ll should be \"acd\", actull: \"" + ll + "\""
+        );
+        assertEquals(3, ll.getSize());
+    }
+
+    @Test
+    void removeOutOfBoundsLinkedListTest() {
+        assertThrows(
+                IndexOutOfBoundsException.class,
+                () -> ll.remove(10),
+                "remove should throw IndexOutOfBoundsException"
+        );
+    }
+
+    @Test
+    void appendLinkedListTest() {
+        ll.append('e');
+        assertEquals(
+                'e',
+                ll.get(ll.getSize() - 1),
+                "ll should be \"abcde\", actull: \"" + ll + "\""
+        );
+        assertEquals(
+                5,
+                ll.getSize()
+        );
+    }
+
+    @Test
+    void append2LinkedListTest() {
+        ll.append('e');
+        ll.append('f');
+        assertEquals('e', ll.get(ll.getSize() - 2));
+        assertEquals('f', ll.get(ll.getSize() - 1));
+        assertEquals(6, ll.getSize());
+    }
+
+    @Test
+    void insertLinkedListTest() {
+        ll.insert('e', 2);
+        assertEquals('e', ll.get(2));
+        assertEquals(5, ll.getSize());
+    }
+
+    @Test
+    void insertOutOfBoundsLinkedListTest() {
+        assertThrows(
+                IndexOutOfBoundsException.class,
+                () -> ll.insert('e', 10),
+                "insert should throw IndexOutOfBoundsException"
         );
     }
 }
