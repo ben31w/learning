@@ -5,56 +5,99 @@
 
 using namespace std;
 
-namespace Util {
-    // Pass by value (no operator). 
-    // A shallow copy of variable is passed.
-    // Modifications made to the copy are not made to the orignal variable.
-    // Safe, but copying can be expensive.
-    void printX(int x) {
-        cout << "printX: You passed in " << x << endl;
-        x *= 2;
-        cout << "printX: Doubling a copy: " << x << endl;
+//  Syntax              Term                            Desc
+//  T arg               Pass by value                   shallow copy is passed; OG var isn't modified
+//  T& arg              Pass by reference               OG var is passed and modified. Reference to OG var = OG var.
+//  const T& arg        Pass by const reference         OG var is passed but not modified.
+//  T* arg              Pass by pointer                 pointer to OG var is passed. Pointer and variable pointed to are modified.
+//  const T* arg        Pass by pointer to const        pointer to OG var is passed. Pointer can be modified; variable pointed to cannot.
+//  T* const arg        Pass by const pointer           pointer to OG var is passed. Pointer cannot be modified; variable pointed to can.
+//  const T* const arg  Pass by const pointer to const  pointer to OG var is passed. Pointer and variable pointed to cannot be modified.
+
+// Pass by value is rarely used because copying can be expensive.
+// If you want to avoid modifications to OG var, use const reference, pointer to const, or const pointer to const.
+
+void passByVal(int i) {
+    i += 1;  // modifies a copy.
+}
+
+void passByRef(int& i) {
+    i += 1;  // modifies OG var
+}
+
+void passByConstRef(const int& i) {
+    // i += 1;  // not allowed
+}
+
+void passByPtr(int* p) {
+    if (p == nullptr) {
+        return;
     }
+    *p += 1;  // de-references ptr to modify OG var
+}
 
-    // Pass by reference (&)
-    // A reference to the variable/the variable itself is passed.
-    // No copying, modifications are permanent.
-    void doubleX(int& x) {
-        cout << "doubleX(int&): You passed in  " << x << endl;
-        x *= 2;
-        cout << "doubleX(int&): Doubling: " << x << endl;
+void passByPtrToConst(const int* p) {
+    if (p == nullptr) {
+        return;
     }
+    // *p += 1;  // not allowed
+}
 
-    // Pass by pointer (*)
-    // A pointer to the variable is passed: pointer must be dereferenced
-    // and null-checked. You can do pointer arithmetic though.
-    // No copying, modifications are permanant.
-    void doubleX(int* x) {
-        if (x == nullptr) {
-            cout << "doubleX(int*): nullptr, exiting " << endl;
-            return;
-        }
+void passByConstPtr(int* const p) {
+    if (p == nullptr) {
+        return;
+    }
+    *p += 1;  // de-references ptr to modify OG var
+}
 
-        cout << "doubleX(int*): You passed in " << *x << endl;
-        *x *= 2;
-        cout << "doubleX(int*): Doubling: " << *x << endl;
-    }   
+void passByConstPtrToConst(const int* const p) {
+    if (p == nullptr) {
+        return;
+    }
+    // *p += 1;  // not allowed
 }
 
 
 int main() {
     int i = 10;
 
-    Util::printX(i);
-    Util::doubleX(i);
+    cout << "----initialization----" << endl;
+    cout << "i=" << i << endl;
 
-    int* p = &i;
+    passByVal(i);
 
-    Util::doubleX(p);
+    cout << "----passByVal----" << endl;
+    cout << "i=" << i << endl;
 
-    cout << "---Final values---" << endl;
-    cout << "i\t&i\t\tp\t\t&p\t\t*p" << endl;
-    cout << i << '\t' << &i << '\t' << p << '\t' << &p << '\t' << *p << endl;
+    passByRef(i);
+
+    cout << "----passByRef----" << endl;
+    cout << "i=" << i << endl;
+
+    passByConstRef(i);
+
+    cout << "----passByConstRef----" << endl;
+    cout << "i=" << i << endl;
+
+    passByPtr(&i);
+
+    cout << "----passByPtr----" << endl;
+    cout << "i=" << i << endl;
+
+    passByPtrToConst(&i);
+
+    cout << "----passByPtrToConst----" << endl;
+    cout << "i=" << i << endl;
+
+    passByConstPtr(&i);
+
+    cout << "----passByConstPtr----" << endl;
+    cout << "i=" << i << endl;
+
+    passByConstPtrToConst(&i);
+
+    cout << "----passByConstPtrToConst----" << endl;
+    cout << "i=" << i << endl;
 
     return 0;
 }

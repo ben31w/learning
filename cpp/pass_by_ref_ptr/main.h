@@ -1,7 +1,13 @@
 #pragma once
 
-void doubleCopy(int x);
-void doubleX(int& x);
-void doubleX(int* x);
 int main();
-void printX(int x);
+
+void passByVal(int i);
+
+void passByRef(int& i);
+void passByConstRef(const int& i);
+
+void passByPtr(int* p);
+void passByPtrToConst(const int* p);
+void passByConstPtr(int* const p);
+void passByConstPtrToConst(const int* const p);
