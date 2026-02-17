@@ -8,7 +8,7 @@ class ListTest {
 
     private final char[] initialData = {'a', 'b', 'c', 'd'};
     private final MyArrayList<Character> al = new MyArrayList<>(initialData);
-    private final MyLinkedList<Character> ll = new MyLinkedList<>(initialData);
+    private final MySinglyLinkedList<Character> ll = new MySinglyLinkedList<>(initialData);
 
     @Test
     void getSizeArrayListTest() {

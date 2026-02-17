@@ -14,12 +14,12 @@ class Node<Character> {
 /**
  * Singly-linked list implementation
  */
-public class MyLinkedList<Character> implements MyList<Character>{
+public class MySinglyLinkedList<Character> implements MyList<Character>{
     private Node<Character> head;
     private Node<Character> tail;
     private int size;
 
-    public MyLinkedList() {
+    public MySinglyLinkedList() {
         head = null;
         tail = null;
         size = 0;
@@ -29,7 +29,7 @@ public class MyLinkedList<Character> implements MyList<Character>{
     * Initialize an ArrayList from an existing array.
     * @param existing
     */
-   public MyLinkedList(char[] existing) {
+   public MySinglyLinkedList(char[] existing) {
        if (existing.length == 0) {
            head = null;
            tail = null;

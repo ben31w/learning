@@ -8,7 +8,7 @@ public class Main {
         arrList.insert('C', 1);
         System.out.println(arrList);
 
-        MyLinkedList<Character> linkedList = new MyLinkedList<>();
+        MySinglyLinkedList<Character> linkedList = new MySinglyLinkedList<>();
         linkedList.append('B');
         linkedList.append('N');
         linkedList.append('W');
