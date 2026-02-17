@@ -1,8 +1,8 @@
 package com.example;
 
-class Node<Character> {
+class Node {
     char val;
-    Node<Character> next;
+    Node next;
 
     public Node(char c) {
         val = c;
@@ -14,9 +14,9 @@ class Node<Character> {
 /**
  * Singly-linked list implementation
  */
-public class MySinglyLinkedList<Character> implements MyList<Character>{
-    private Node<Character> head;
-    private Node<Character> tail;
+public class MySinglyLinkedList implements MyList {
+    private Node head;
+    private Node tail;
     private int size;
 
     public MySinglyLinkedList() {
@@ -35,12 +35,12 @@ public class MySinglyLinkedList<Character> implements MyList<Character>{
            tail = null;
            size = 0;
        } else {
-           head = new Node<Character>(existing[0]);
+           head = new Node(existing[0]);
            size = existing.length;
 
-           Node<Character> n = head;
+           Node n = head;
            for (int i = 1; i < existing.length; i++) {
-                n.next = new Node<>(existing[i]);
+                n.next = new Node(existing[i]);
                 n = n.next;
            }
            tail = n;
@@ -49,7 +49,7 @@ public class MySinglyLinkedList<Character> implements MyList<Character>{
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        Node<Character> curr = head;
+        Node curr = head;
         for (int i = 0; i < size; i++) {
             sb.append(curr.val);
             curr = curr.next;
@@ -77,7 +77,7 @@ public class MySinglyLinkedList<Character> implements MyList<Character>{
             throw new IndexOutOfBoundsException("index must be between [0, " + size + ")");
         }
 
-        Node<Character> n = head;
+        Node n = head;
         for (int i = 0; i < index; i++) {
             n = n.next;
         }
@@ -107,8 +107,8 @@ public class MySinglyLinkedList<Character> implements MyList<Character>{
             --size;
             return result;
         } else {
-            Node<Character> prev = head;
-            Node<Character> curr = head.next;
+            Node prev = head;
+            Node curr = head.next;
             for (int i = 1; i < index; i++) {
                 prev = curr;
                 curr = curr.next;
@@ -134,10 +134,10 @@ public class MySinglyLinkedList<Character> implements MyList<Character>{
     @Override
     public void append(char valueToAppend) {
         if (size == 0) {
-            head = new Node<>(valueToAppend);
+            head = new Node(valueToAppend);
             tail = head;
         } else {
-            tail.next = new Node<>(valueToAppend);
+            tail.next = new Node(valueToAppend);
             tail = tail.next;
         }
         ++size;
@@ -155,12 +155,12 @@ public class MySinglyLinkedList<Character> implements MyList<Character>{
             throw new IndexOutOfBoundsException("index must be [0, " + size + ")");
         }
 
-        Node<Character> n = head;
+        Node n = head;
         for (int i = 0; i < index - 1; i++) {
             n = n.next;
         }
 
-        Node<Character> newNode = new Node<>(valueToInsert);
+        Node newNode = new Node(valueToInsert);
         newNode.next =  n.next;
         n.next = newNode;
         ++size;

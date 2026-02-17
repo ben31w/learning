@@ -1,6 +1,6 @@
 package com.example;
 
-public class MyArrayList<Character> implements MyList<Character> {
+public class MyArrayList implements MyList {
     /** Underlying array that stores the ordered elements. length = capacity. */
     private char[] arr;
 

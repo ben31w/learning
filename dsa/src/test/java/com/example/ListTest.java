@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class ListTest {
 
     private final char[] initialData = {'a', 'b', 'c', 'd'};
-    private final MyArrayList<Character> al = new MyArrayList<>(initialData);
-    private final MySinglyLinkedList<Character> ll = new MySinglyLinkedList<>(initialData);
+    private final MyArrayList al = new MyArrayList(initialData);
+    private final MySinglyLinkedList ll = new MySinglyLinkedList(initialData);
 
     @Test
     void getSizeArrayListTest() {
@@ -97,7 +97,7 @@ class ListTest {
         assertEquals(
                 'b',
                 item1,
-                "ll should be \"acd\", actull: \"" + ll + "\""
+                "ll should be \"acd\", actual: \"" + ll + "\""
         );
         assertEquals(3, ll.getSize());
     }
@@ -117,7 +117,7 @@ class ListTest {
         assertEquals(
                 'e',
                 ll.get(ll.getSize() - 1),
-                "ll should be \"abcde\", actull: \"" + ll + "\""
+                "ll should be \"abcde\", actual: \"" + ll + "\""
         );
         assertEquals(
                 5,

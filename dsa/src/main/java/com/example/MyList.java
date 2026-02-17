@@ -1,6 +1,6 @@
 package com.example;
 
-public interface MyList<Character> {
+public interface MyList {
     /**
      * Return size of list. O(_)
      * @return size
