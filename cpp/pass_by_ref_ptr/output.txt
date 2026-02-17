@@ -1,0 +1,18 @@
+copy-pasted stdout
+
+----initialization----
+i=10
+----passByVal----
+i=10
+----passByRef----
+i=11
+----passByConstRef----
+i=11
+----passByPtr----
+i=12
+----passByPtrToConst----
+i=12
+----passByConstPtr----
+i=13
+----passByConstPtrToConst----
+i=13
