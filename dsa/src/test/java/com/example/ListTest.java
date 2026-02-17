@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ListTest {
 
-    private char[] initialData = {'a', 'b', 'c', 'd'};
-     private final MyArrayList<Character> al = new MyArrayList<>(initialData);
+    private final char[] initialData = {'a', 'b', 'c', 'd'};
+    private final MyArrayList<Character> al = new MyArrayList<>(initialData);
     private final MyLinkedList<Character> ll = new MyLinkedList<>(initialData);
 
     @Test
