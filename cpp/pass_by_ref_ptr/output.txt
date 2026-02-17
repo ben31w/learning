@@ -1,5 +1,6 @@
 copy-pasted stdout
 
+====Pass variables and references: pointers don't change.====
 ----initialization----
 i=10
 ----passByVal----
@@ -16,3 +17,17 @@ i=12
 i=13
 ----passByConstPtrToConst----
 i=13
+
+====Pass pointer variables: pointers change.====
+----initialize----
+   i = 10
+  *p = 10
+----passByPtrToPtr----
+   i = 10
+  *p = 21
+----passByRefToPtr----
+   i = 10
+  *p = 31
+----passByRefToConstPtrToConst----
+   i = 10
+  *p = 31
