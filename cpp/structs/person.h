@@ -6,10 +6,10 @@
 // Structs are public by default
 struct PersonStruct {
     std::string fname;
-    std::time_t birthdate;
+    std::tm birthdate;
 
     // To use string literals in a constructor with pass by ref, use const
-    PersonStruct(const std::string& s, const std::time_t& t);
+    PersonStruct(const std::string& s, const std::tm& t);
     int getAge();
 };
 
@@ -17,10 +17,11 @@ struct PersonStruct {
 class PersonClass {
     private:
         std::string fname;
-        std::time_t birthdate;
+        std::tm birthdate;
     public:
-        PersonClass(const std::string& s, const std::time_t& t);
-        std::string getFName();
+        // To use string literals in a constructor with pass by ref, use const
+        PersonClass(const std::string& s, const std::tm& t);
+        std::string getFName() { return fname; }
         int getAge();
 };
 
