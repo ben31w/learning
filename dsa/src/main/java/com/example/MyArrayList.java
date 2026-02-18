@@ -1,8 +1,8 @@
 package com.example;
 
-public class MyArrayList implements MyList {
+public class MyArrayList<T> implements MyList<T> {
     /** Underlying array that stores the ordered elements. length = capacity. */
-    private char[] arr;
+    private T[] arr;
 
     /** Actual size of list. */
     private int size;
@@ -12,7 +12,7 @@ public class MyArrayList implements MyList {
      */
     public MyArrayList() {
         size = 0;
-        arr = new char[10];
+        arr = (T[]) new Object[10];
     }
 
     /**
@@ -20,10 +20,10 @@ public class MyArrayList implements MyList {
      * capacity of the array.
      * @param existing
      */
-    public MyArrayList(char[] existing) {
+    public MyArrayList(T[] existing) {
         size = existing.length;
 
-        arr = new char[existing.length * 2];
+        arr = (T[]) new Object[existing.length * 2];
         for (int i = 0; i < existing.length; i++) {
             arr[i] = existing[i];
         }
@@ -41,6 +41,7 @@ public class MyArrayList implements MyList {
      * Return size of list. O(1)
      * @return size
      */
+    @Override
     public int getSize() {
         return size;
     }
@@ -50,7 +51,8 @@ public class MyArrayList implements MyList {
      * @param index  index indicating item to get
      * @return item or IndexOutOfBoundsException
      */
-    public char get(int index) {
+    @Override
+    public T get(int index) {
         if (index < 0 || index >= size) {
             String msg = String.format("index must be between [0, %d)", size);
             throw new IndexOutOfBoundsException(msg);
@@ -63,13 +65,14 @@ public class MyArrayList implements MyList {
      * @param index  index indicating item to get
      * @return item removed at index
      */
-    public char remove(int index) {
+    @Override
+    public T remove(int index) {
         if (index < 0 || index >= size) {
             String msg = String.format("index must be between [0, %d)", size);
             throw new IndexOutOfBoundsException(msg);
         }
 
-        char result = arr[index];
+        T result = arr[index];
 
         for (int i = index; i < size - 1; i++) {
             arr[i] = arr[i+1];
@@ -88,9 +91,10 @@ public class MyArrayList implements MyList {
      * Worst case: O(N)
      * @param valueToAppend  item to add to end of list
      */
-    public void append(char valueToAppend) {
+    @Override
+    public void append(T valueToAppend) {
         if (arr.length == size) {
-            char[] arrCopy = new char[arr.length * 2];
+            T[] arrCopy = (T[]) new Object[arr.length * 2];
             for (int i = 0; i < size; i++) {
                 arrCopy[i] = arr[i];
             }
@@ -106,14 +110,15 @@ public class MyArrayList implements MyList {
      * @param valueToInsert  item to insert into list
      * @param index  index indicating where to insert
      */
-    public void insert(char valueToInsert, int index) {
+    @Override
+    public void insert(T valueToInsert, int index) {
         if (index < 0 || index > size) {
             String msg = String.format("index must be between [0, %d]", size);
             throw new IndexOutOfBoundsException(msg);
         }
 
         if (arr.length == size) {
-            char[] arrCopy = new char[arr.length * 2];
+            T[] arrCopy = (T[]) new Object[arr.length * 2];
 
             // Up to index, simple copy item-for-item
             for (int i = 0; i < index; i++) {

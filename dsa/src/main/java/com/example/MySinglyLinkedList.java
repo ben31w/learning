@@ -1,11 +1,11 @@
 package com.example;
 
-class Node {
-    char val;
-    Node next;
+class Node<T> {
+    T val;
+    Node<T> next;
 
-    public Node(char c) {
-        val = c;
+    public Node(T data) {
+        val = data;
         next = null;
     }
 }
@@ -17,9 +17,9 @@ class Node {
  *
  * Singly-linked lists are optimized for appending/adding to the end: O(1).
  */
-public class MySinglyLinkedList implements MyList {
-    private Node head;
-    private Node tail;
+public class MySinglyLinkedList<T> implements MyList<T> {
+    private Node<T> head;
+    private Node<T> tail;
     private int size;
 
     public MySinglyLinkedList() {
@@ -32,18 +32,18 @@ public class MySinglyLinkedList implements MyList {
     * Initialize an ArrayList from an existing array.
     * @param existing
     */
-   public MySinglyLinkedList(char[] existing) {
+   public MySinglyLinkedList(T[] existing) {
        if (existing.length == 0) {
            head = null;
            tail = null;
            size = 0;
        } else {
-           head = new Node(existing[0]);
+           head = new Node<>(existing[0]);
            size = existing.length;
 
-           Node n = head;
+           Node<T> n = head;
            for (int i = 1; i < existing.length; i++) {
-                n.next = new Node(existing[i]);
+                n.next = new Node<>(existing[i]);
                 n = n.next;
            }
            tail = n;
@@ -52,7 +52,7 @@ public class MySinglyLinkedList implements MyList {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        Node curr = head;
+        Node<T> curr = head;
         for (int i = 0; i < size; i++) {
             sb.append(curr.val);
             curr = curr.next;
@@ -75,12 +75,12 @@ public class MySinglyLinkedList implements MyList {
      * @return item or IndexOutOfBoundsException
      */
     @Override
-    public char get(int index) {
+    public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("index must be between [0, " + size + ")");
         }
 
-        Node n = head;
+        Node<T> n = head;
         for (int i = 0; i < index; i++) {
             n = n.next;
         }
@@ -94,11 +94,11 @@ public class MySinglyLinkedList implements MyList {
      * @return item removed at index
      */
     @Override
-    public char remove(int index) {
+    public T remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("index must be between [0, " + size + ")");
         } else if (index == 0) {
-            char result = head.val;
+            T result = head.val;
 
             if (size == 1) {
                 head = null;
@@ -110,14 +110,14 @@ public class MySinglyLinkedList implements MyList {
             --size;
             return result;
         } else {
-            Node prev = head;
-            Node curr = head.next;
+            Node<T> prev = head;
+            Node<T> curr = head.next;
             for (int i = 1; i < index; i++) {
                 prev = curr;
                 curr = curr.next;
             }
 
-            char result = curr.val;
+            T result = curr.val;
             prev.next = curr.next;
 
             if (index == size - 1) {
@@ -135,12 +135,12 @@ public class MySinglyLinkedList implements MyList {
      * @param valueToAppend item to add to end of list
      */
     @Override
-    public void append(char valueToAppend) {
+    public void append(T valueToAppend) {
         if (size == 0) {
-            head = new Node(valueToAppend);
+            head = new Node<>(valueToAppend);
             tail = head;
         } else {
-            tail.next = new Node(valueToAppend);
+            tail.next = new Node<>(valueToAppend);
             tail = tail.next;
         }
         ++size;
@@ -153,17 +153,17 @@ public class MySinglyLinkedList implements MyList {
      * @param index         index indicating where to insert
      */
     @Override
-    public void insert(char valueToInsert, int index) {
+    public void insert(T valueToInsert, int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("index must be [0, " + size + ")");
         }
 
-        Node n = head;
+        Node<T> n = head;
         for (int i = 0; i < index - 1; i++) {
             n = n.next;
         }
 
-        Node newNode = new Node(valueToInsert);
+        Node<T> newNode = new Node<>(valueToInsert);
         newNode.next =  n.next;
         n.next = newNode;
         ++size;

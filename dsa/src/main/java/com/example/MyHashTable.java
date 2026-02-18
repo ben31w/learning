@@ -8,7 +8,7 @@ package com.example;
  * (collision management), but it's not working.
  */
 public class MyHashTable {
-    MySinglyLinkedList[] arr = new MySinglyLinkedList[100];
+    MySinglyLinkedList<Character>[] arr = new MySinglyLinkedList[100];
 
     public MyHashTable() {
 
@@ -17,14 +17,14 @@ public class MyHashTable {
     public void put(String key, char val) {
         int idx = hashString(key);
         if (arr[idx] == null) {
-            arr[idx] = new MySinglyLinkedList();
+            arr[idx] = new MySinglyLinkedList<>();
         }
         arr[idx].append(val);
     }
 
     public char get(String key) {
         int idx = hashString(key);
-        MySinglyLinkedList ll = arr[idx];
+        MySinglyLinkedList<Character>  ll = arr[idx];
         // TODO this won't work if there's a collision
         // there SinglyLinkedList needs to store K,V pairs, not just V
         return ll.get(0);

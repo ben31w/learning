@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class ListTest {
 
     private final char[] initialData = {'a', 'b', 'c', 'd'};
-    private final MyArrayList al = new MyArrayList(initialData);
-    private final MySinglyLinkedList ll = new MySinglyLinkedList(initialData);
+    private final MyArrayList<Character>  al = new MyArrayList<>(initialData);
+    private final MySinglyLinkedList<Character>  ll = new MySinglyLinkedList<>(initialData);
 
     @Test
     void getSizeArrayListTest() {
