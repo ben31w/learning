@@ -15,5 +15,9 @@ public class Main {
         linkedList.remove(1);
         linkedList.insert('M', 1);
         System.out.println(linkedList);
+
+        MyHashTable ht = new MyHashTable();
+        ht.put("ben", 'b');
+        System.out.println(ht.get("ben"));
     }
 }

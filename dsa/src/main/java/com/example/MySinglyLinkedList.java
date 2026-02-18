@@ -12,7 +12,10 @@ class Node {
 
 
 /**
- * Singly-linked list implementation
+ * Singly-linked list implementation.
+ * Linked Lists are usually doubly-linked.
+ *
+ * Singly-linked lists are optimized for appending/adding to the end: O(1).
  */
 public class MySinglyLinkedList implements MyList {
     private Node head;
