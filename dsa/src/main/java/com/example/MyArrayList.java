@@ -18,16 +18,14 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     /**
-     * Initialize an ArrayList from an existing array. Double the
-     * capacity of the array.
-     * @param existing
+     * Initialize an ArrayList with defined capacity.
      */
-    public MyArrayList(Collection<? extends T> existing) {
-        size = existing.size();
-        arr = (T[]) new Object[existing.size() * 2];
-        for (int i = 0; i < existing.size(); i++) {
-            arr[i] = existing.stream().toList().get(i);
+    public MyArrayList(int capacity) {
+        if (capacity <= 0) {
+            throw new IllegalArgumentException("Capacity must be >= 1");
         }
+        size = 0;
+        arr = (T[]) new Object[capacity];
     }
 
     public String toString() {

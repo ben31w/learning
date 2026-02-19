@@ -2,8 +2,6 @@ package com.example;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListTest {
@@ -11,7 +9,7 @@ class ListTest {
     private final MySinglyLinkedList<Character>  sll = new MySinglyLinkedList<>();
 
     @Test
-    void getSizeArrayListTest() {
+    void getSizeALTest() {
         assertEquals(0, al.getSize());
         al.append('a');
         assertEquals(1, al.getSize());
@@ -22,7 +20,7 @@ class ListTest {
     }
 
     @Test
-    void getArrayListTest() {
+    void getALTest() {
         al.append('a');
         al.append('b');
         al.append('c');
@@ -45,7 +43,7 @@ class ListTest {
     }
 
     @Test
-    void removeArrayListTest() {
+    void removeALTest() {
         al.append('a');
         al.append('b');
         al.append('c');
@@ -70,7 +68,7 @@ class ListTest {
     }
 
     @Test
-    void removeOutOfBoundsArrayListTest() {
+    void removeOutOfBoundsALTest() {
         assertThrows(
                 IndexOutOfBoundsException.class,
                 () -> al.remove(10),
@@ -84,7 +82,7 @@ class ListTest {
     }
 
     @Test
-    void appendArrayListTest() {
+    void appendALTest() {
         al.append('a');
         assertEquals(
                 'a',
@@ -95,13 +93,18 @@ class ListTest {
     }
 
     @Test
-    void insertArrayListTest() {
+    void insertALTest() {
         al.insert('b', 0);
         assertEquals('b', al.get(0));
+        assertEquals(1, al.getSize());
+
         al.insert('a', 0);
         assertEquals('a', al.get(0));
+        assertEquals(2, al.getSize());
+
         al.insert('c', 2);
         assertEquals('c', al.get(2));
+        assertEquals(3, al.getSize());
 
         assertEquals(3, al.getSize());
 
@@ -119,7 +122,28 @@ class ListTest {
     }
 
     @Test
-    void getSizeSinglyLinkedListTest() {
+    void atCapacityAppendALTest() {
+        MyArrayList<Character> atCap = new MyArrayList<>(1);
+
+        atCap.append('a');
+        assertEquals(1, atCap.getSize());
+        assertEquals('a', atCap.get(0));
+
+        atCap.append('b');
+        assertEquals(2, atCap.getSize());
+        assertEquals('b', atCap.get(1));
+
+        atCap.append('c');
+        assertEquals(3, atCap.getSize());
+        assertEquals('c', atCap.get(2));
+
+        atCap.append('d');
+        assertEquals(4, atCap.getSize());
+        assertEquals('d', atCap.get(3));
+    }
+
+    @Test
+    void getSizeSLLTest() {
         assertEquals(0, sll.getSize());
         sll.append('a');
         assertEquals(1, sll.getSize());
@@ -130,7 +154,7 @@ class ListTest {
     }
 
     @Test
-    void getSinglyLinkedListTest() {
+    void getSLLTest() {
         sll.append('a');
         sll.append('b');
         sll.append('c');
@@ -153,7 +177,7 @@ class ListTest {
     }
 
     @Test
-    void removeSinglyLinkedListTest() {
+    void removeSLLTest() {
         sll.append('a');
         sll.append('b');
         sll.append('c');
@@ -178,7 +202,7 @@ class ListTest {
     }
 
     @Test
-    void removeOutOfBoundsSinglyLinkedListTest() {
+    void removeOutOfBoundsSLLTest() {
         assertThrows(
                 IndexOutOfBoundsException.class,
                 () -> sll.remove(10),
@@ -192,7 +216,7 @@ class ListTest {
     }
 
     @Test
-    void appendSinglyLinkedListTest() {
+    void appendSLLTest() {
         sll.append('a');
         assertEquals(
                 'a',
@@ -203,7 +227,7 @@ class ListTest {
     }
 
     @Test
-    void insertSinglyLinkedListTest() {
+    void insertSLLTest() {
         sll.insert('b', 0);
         assertEquals('b', sll.get(0));
         assertEquals(1, sll.getSize());
