@@ -7,5 +7,5 @@ Simple Gradle Java project with JUnit 5.
 Commands:
 
 - Create Gradle Wrapper: `gradle wrapper` (or use the system Gradle)
-- Run tests via wrapper (recommended): `./gradlew test`
-- Or run: `gradle test`
+- Run tests: `./gradlew test`
+- Run main program: `./gradlew run`

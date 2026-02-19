@@ -261,15 +261,15 @@ class ListTest {
 
     @Test
     void insertSLLTest() {
-        sll.insert('b', 0);
+        sll.insert('b', 0);  // b
         assertEquals('b', sll.get(0));
         assertEquals(1, sll.getSize());
 
-        sll.insert('a', 0);
+        sll.insert('a', 0);  // a b
         assertEquals('a', sll.get(0));
         assertEquals(2, sll.getSize());
 
-        sll.insert('c', 2);
+        sll.insert('c', 2); // a b c
         assertEquals('c', sll.get(2));
         assertEquals(3, sll.getSize());
 

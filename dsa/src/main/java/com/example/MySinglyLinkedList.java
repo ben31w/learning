@@ -54,6 +54,7 @@ public class MySinglyLinkedList<T> implements MyList<T> {
         StringBuilder sb = new StringBuilder();
         Node<T> curr = head;
         for (int i = 0; i < size; i++) {
+            System.out.println(i + ": " + curr.val);
             sb.append(curr.val);
             curr = curr.next;
         }
@@ -168,8 +169,13 @@ public class MySinglyLinkedList<T> implements MyList<T> {
             n = n.next;
         }
 
-        Node<T> newNode = new Node<>(valueToInsert);
-        newNode.next = n;
+        Node<T> newNode = new Node<>(valueToInsert); // M
+        if (n == tail) {
+            newNode.next = tail;
+        } else {
+            newNode.next = n.next;  // M -> W
+            n.next = newNode;  // B -> M
+        }
         ++size;
 
         if (index == size - 1) {
