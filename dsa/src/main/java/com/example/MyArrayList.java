@@ -144,4 +144,16 @@ public class MyArrayList<T> implements MyList<T> {
 
         ++size;
     }
+
+    void setCapacity(int capacity) {
+        if (capacity < size) {
+            throw new IllegalArgumentException("Capacity can't be less than size");
+        }
+        T[] newArr = (T[]) new Object[capacity];
+        for (int i = 0; i < capacity; i++) {
+            newArr[i] = arr[i];
+        }
+        arr = newArr;
+
+    }
 }

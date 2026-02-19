@@ -121,6 +121,9 @@ class ListTest {
         );
     }
 
+    // ==============
+    // ArrayList-specific capacity tests
+
     @Test
     void atCapacityAppendALTest() {
         MyArrayList<Character> atCap = new MyArrayList<>(1);
@@ -141,6 +144,36 @@ class ListTest {
         assertEquals(4, atCap.getSize());
         assertEquals('d', atCap.get(3));
     }
+
+    @Test
+    void atCapacityInsertALTest() {
+        // initial insert
+        MyArrayList<Character> atCap = new MyArrayList<>(1);
+        atCap.insert('c', 0);
+        assertEquals(1, atCap.getSize());  // c
+        assertEquals('c', atCap.get(0));
+
+        // insert at beginning
+        atCap.setCapacity(1);
+        atCap.insert('a', 0);
+        assertEquals(2, atCap.getSize());  // a c
+        assertEquals('a', atCap.get(0));
+
+        // insert at end
+        atCap.setCapacity(2);
+        atCap.insert('d', 2);
+        assertEquals(3, atCap.getSize());  // a c d
+        assertEquals('d', atCap.get(2));
+
+        // insert in middle
+        atCap.setCapacity(3);
+        atCap.insert('b', 1);
+        assertEquals(4, atCap.getSize());  // a b c d
+        assertEquals('b', atCap.get(1));
+    }
+
+    // ==============
+    // Singly-LinkedList tests
 
     @Test
     void getSizeSLLTest() {
