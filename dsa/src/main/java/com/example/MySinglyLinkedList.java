@@ -54,7 +54,7 @@ public class MySinglyLinkedList<T> implements MyList<T> {
         StringBuilder sb = new StringBuilder();
         Node<T> curr = head;
         for (int i = 0; i < size; i++) {
-            System.out.println(i + ": " + curr.val);
+//            System.out.println(i + ": " + curr.val);
             sb.append(curr.val);
             curr = curr.next;
         }

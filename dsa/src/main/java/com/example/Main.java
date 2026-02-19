@@ -16,8 +16,12 @@ public class Main {
         linkedList.insert('M', 1);
         System.out.println(linkedList);
 
-        MyHashTable ht = new MyHashTable();
-        ht.put("ben", 'b');
+        MyHashTable<Integer> ht = new MyHashTable<>();
+        ht.put("ben", 23);
+        ht.put("alexander", 30);
+        ht.put("alexandra", 50);
         System.out.println(ht.get("ben"));
+        System.out.println(ht.get("alexander"));
+        System.out.println(ht.get("alexandra"));
     }
 }

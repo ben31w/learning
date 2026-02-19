@@ -1,33 +1,48 @@
 package com.example;
 
+import java.security.KeyException;
+
 /**
  * Very simple hash table implementation that supports
- * put(String key, char value) and get(String key).
- *
- * It's supposed to use an array of singly-linked lists for chaining
- * (collision management), but it's not working.
+ * put(String key, V value) and get(String key).
+ * Uses an array of singly-linked lists for collision management.
  */
-public class MyHashTable {
-    MySinglyLinkedList<Character>[] arr = new MySinglyLinkedList[100];
+public class MyHashTable<V> {
+    MySinglyLinkedList<Pair<String, V>>[] arr = new MySinglyLinkedList[100];
 
     public MyHashTable() {
 
     }
 
-    public void put(String key, char val) {
+    public void put(String key, V val) {
         int idx = hashString(key);
         if (arr[idx] == null) {
             arr[idx] = new MySinglyLinkedList<>();
         }
-        arr[idx].append(val);
+        arr[idx].append(new Pair<>(key, val));
     }
 
-    public char get(String key) {
+    /**
+     * O(1)
+     * @param key  get value at this key
+     * @return  value or null
+     */
+    public V get(String key) {
         int idx = hashString(key);
-        MySinglyLinkedList<Character>  ll = arr[idx];
-        // TODO this won't work if there's a collision
-        // there SinglyLinkedList needs to store K,V pairs, not just V
-        return ll.get(0);
+        MySinglyLinkedList<Pair<String, V>>  ll = arr[idx];
+
+        if (ll == null) {
+            return null;
+        }
+
+        for (int i = 0; i < ll.getSize(); i++) {
+            Pair<String, V> pair = ll.get(i);
+            if (pair.obj1.equals(key)) {
+                return pair.obj2;
+            }
+        }
+
+        return null;
     }
 
     /**
