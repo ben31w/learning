@@ -154,8 +154,13 @@ public class MySinglyLinkedList<T> implements MyList<T> {
      */
     @Override
     public void insert(T valueToInsert, int index) {
-        if (index >= size || index < 0) {
+        if (index > size || index < 0) {
             throw new IndexOutOfBoundsException("index must be [0, " + size + ")");
+        }
+
+        if (index == size) {
+            this.append(valueToInsert);
+            return;
         }
 
         Node<T> n = head;
@@ -164,8 +169,7 @@ public class MySinglyLinkedList<T> implements MyList<T> {
         }
 
         Node<T> newNode = new Node<>(valueToInsert);
-        newNode.next =  n.next;
-        n.next = newNode;
+        newNode.next = n;
         ++size;
 
         if (index == size - 1) {

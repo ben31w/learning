@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Collection;
+
 public class MyArrayList<T> implements MyList<T> {
     /** Underlying array that stores the ordered elements. length = capacity. */
     private T[] arr;
@@ -20,12 +22,11 @@ public class MyArrayList<T> implements MyList<T> {
      * capacity of the array.
      * @param existing
      */
-    public MyArrayList(T[] existing) {
-        size = existing.length;
-
-        arr = (T[]) new Object[existing.length * 2];
-        for (int i = 0; i < existing.length; i++) {
-            arr[i] = existing[i];
+    public MyArrayList(Collection<? extends T> existing) {
+        size = existing.size();
+        arr = (T[]) new Object[existing.size() * 2];
+        for (int i = 0; i < existing.size(); i++) {
+            arr[i] = existing.stream().toList().get(i);
         }
     }
 
