@@ -1,20 +1,8 @@
 package com.example;
 
-class Node<T> {
-    T val;
-    Node<T> next;
-
-    public Node(T data) {
-        val = data;
-        next = null;
-    }
-}
-
-
 /**
  * Singly-linked list implementation.
  * Linked Lists are usually doubly-linked.
- *
  * Singly-linked lists are optimized for appending/adding to the end: O(1).
  */
 public class MySinglyLinkedList<T> implements MyList<T> {
@@ -27,28 +15,6 @@ public class MySinglyLinkedList<T> implements MyList<T> {
         tail = null;
         size = 0;
     }
-
-   /**
-    * Initialize an ArrayList from an existing array.
-    * @param existing
-    */
-   public MySinglyLinkedList(T[] existing) {
-       if (existing.length == 0) {
-           head = null;
-           tail = null;
-           size = 0;
-       } else {
-           head = new Node<>(existing[0]);
-           size = existing.length;
-
-           Node<T> n = head;
-           for (int i = 1; i < existing.length; i++) {
-                n.next = new Node<>(existing[i]);
-                n = n.next;
-           }
-           tail = n;
-       }
-   }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
