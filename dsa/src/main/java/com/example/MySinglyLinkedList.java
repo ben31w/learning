@@ -1,5 +1,20 @@
 package com.example;
 
+
+/**
+ * Singly-linked list node
+ * @param <T> generic type
+ */
+class Node<T> {
+    T val;
+    Node<T> next;
+
+    public Node(T data) {
+        val = data;
+        next = null;
+    }
+}
+
 /**
  * Singly-linked list implementation.
  * Linked Lists are usually doubly-linked.
