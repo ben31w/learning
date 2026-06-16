@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="messages"></div>
+  <input id="input" placeholder="Type a message..." />
+  <button onclick="send()">Send</button>
+
+  <script>
+    const ws = new WebSocket('ws://localhost:8080');
+    const messagesDiv = document.getElementById('messages');
+    const input = document.getElementById('input');
+
+    ws.onmessage = (event) => {
+      const el = document.createElement('p');
+      el.textContent = event.data;
+      messagesDiv.appendChild(el);
+    };
+
+    // Handle unexpected disconnects gracefully
+    ws.onclose = () => {
+      const el = document.createElement('p');
+      el.textContent = '⚠ Connection lost. Refresh to reconnect.';
+      messagesDiv.appendChild(el);
+    };
+
+    function send() {
+      if (input.value.trim()) {
+        ws.send(input.value);
+        input.value = '';
+      }
+    }
+
+    // Allow sending with Enter key
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') send();
+    });
+  </script>
+</body>
+</html>
