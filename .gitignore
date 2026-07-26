@@ -1,4 +1,4 @@
-# Ignore jenkins and docker directories for now, because they 
+# Ignore some directories for now, because they 
 # contain various sub-modules (forked Git repos inside a Git repo).
 jenkins/*
 
