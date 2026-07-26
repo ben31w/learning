@@ -43,26 +43,26 @@ def smallestSubarrayGivenSum(nums: list[int], target_sum: int) -> int:
     target_sum = 7
 
     curr_win_sum = 4
-    result = 2
+    min_win_size = 2
     win_start = 3
     win_end = 3
     """
     curr_win_sum = 0
-    result = sys.maxsize
+    min_win_size = sys.maxsize
     win_start = 0
 
     for win_end in range(len(nums)):  # window end is inclusive
         curr_win_sum += nums[win_end]
         while curr_win_sum >= target_sum:
-            result = min(result, win_end - win_start + 1)
+            min_win_size = min(min_win_size, win_end - win_start + 1)
 
-            if result == 1:
+            if min_win_size == 1:
                 return 1
 
             curr_win_sum -= nums[win_start]
             win_start += 1
 
-    return result
+    return min_win_size
 
 
 if __name__ == '__main__':
