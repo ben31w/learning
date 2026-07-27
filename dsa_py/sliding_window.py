@@ -64,8 +64,35 @@ def smallestSubarrayGivenSum(nums: list[int], target_sum: int) -> int:
 
     return min_win_size
 
+def longestSubstringLenWithKDistinctChars(s: str, k: int) -> int:
+    """
+    Dynamic size with aux data structure example.
+    Given string and number of chars k, find longest substring with k distinct characters.
+    """
+    max_len = -sys.maxsize - 1
+    win_start = 0
+    char_map = {}  # char -> count for current window
+
+    for win_end in range(len(s)):
+        try:
+            char_map[s[win_end]] += 1
+        except KeyError:
+            char_map[s[win_end]] = 1
+
+        while len(char_map.keys()) > k:
+            char_map[s[win_start]] -= 1
+            if char_map[s[win_start]] == 0:
+                del char_map[s[win_start]]
+            win_start += 1
+
+        max_len = max(max_len, win_end - win_start + 1)
+    
+    return max_len
+
 
 if __name__ == '__main__':
     print(maxSumSubarray([1,2,3,4,3,2,1], 3))  # -> 3+4+3 -> 10
 
     print(smallestSubarrayGivenSum([1,2,3,4,3,2,1], 7))  # len([3,4]) -> 2
+
+    print(longestSubstringLenWithKDistinctChars("AAAHHIBG", 2))
